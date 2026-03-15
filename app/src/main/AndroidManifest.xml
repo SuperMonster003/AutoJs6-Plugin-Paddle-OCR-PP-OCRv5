@@ -1,0 +1,39 @@
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="org.autojs.permission.PLUGIN" />
+
+    <application
+        android:label="Paddle OCR (PP-OCRv5)"
+        android:icon="@mipmap/ic_launcher">
+
+        <meta-data
+            android:name="org.autojs.plugin.WAKE_ACTIVITY"
+            android:value=".WakeActivity" />
+
+        <activity
+            android:name=".WakeActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:finishOnTaskLaunch="true"
+            android:permission="org.autojs.permission.PLUGIN"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="org.autojs.plugin.action.WAKE" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".OcrService"
+            android:exported="true"
+            android:permission="org.autojs.permission.PLUGIN">
+            <intent-filter>
+                <action android:name="org.autojs.plugin.PADDLE_OCR"/>
+                <category android:name="paddle-ocr" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

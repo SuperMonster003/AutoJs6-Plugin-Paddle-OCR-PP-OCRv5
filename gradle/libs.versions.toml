@@ -1,0 +1,28 @@
+[versions]
+
+#strictly : 1.15.0
+#purpose  : Compatibility for Android Gradle plugin 8.2.2
+#because  : Dependency 'androidx.core:core:1.16.0' requires Android Gradle plugin 8.6.0 or higher
+#since    : Sep 25, 2025 (by SuperMonster003)
+#noinspection NewerVersionAvailable,GradleDependency
+core-ktx = "1.15.0"
+
+annotation-jvm = "1.9.1"
+commons-compress = "1.28.0"
+foojay-resolver-convention = "1.0.0"
+preference = "1.2.1"
+preference-ktx = "1.2.1"
+xz = "1.10"
+
+[libraries]
+
+annotation-jvm = { group = "androidx.annotation", name = "annotation-jvm", version.ref = "annotation-jvm" }
+apache-commons-compress = { module = "org.apache.commons:commons-compress", version.ref = "commons-compress" }
+core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+preference = { group = "androidx.preference", name = "preference", version.ref = "preference" }
+preference-ktx = { module = "androidx.preference:preference-ktx", version.ref = "preference-ktx" }
+tukaani-xz = { module = "org.tukaani:xz", version.ref = "xz" }
+
+[plugins]
+
+foojay-resolver-convention = { id = "org.gradle.toolchains.foojay-resolver-convention", version.ref = "foojay-resolver-convention" }

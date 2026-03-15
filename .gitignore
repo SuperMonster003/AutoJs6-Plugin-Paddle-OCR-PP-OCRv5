@@ -6,6 +6,7 @@
 *.log
 *.ffs_db
 *.patch
+*.hprof
 
 .DS_Store
 .externalNativeBuild
@@ -27,15 +28,11 @@ sync.ffs_db
 !.idea/shared-intellij-idea-settings.zip
 
 /build/
+/app/**/build/
 /libs/**/build/
-/release/
-/releases/
+/app/release/
+/app/releases/
 
 /local.properties
 /sign.properties
 /*dependecies_tree.txt
-
-# Project exclude paths
-/app/build/
-/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/
-/app/build/intermediates/javac/debugAndroidTest/compileDebugAndroidTestJavaWithJavac/classes/

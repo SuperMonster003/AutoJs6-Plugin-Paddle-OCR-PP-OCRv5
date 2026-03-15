@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="plugin_description">Baidu PaddlePaddle 기반 텍스트 인식용 Paddle OCR 플러그인</string>
+</resources>

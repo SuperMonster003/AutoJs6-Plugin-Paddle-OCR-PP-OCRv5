@@ -1,0 +1,9 @@
+/build/
+/.cxx/
+/.idea/
+/cache/
+
+/src/sdk/native/
+
+*.skip
+**/temp-extracted/

@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="plugin_description">Complemento Paddle OCR para reconocimiento de texto basado en Baidu PaddlePaddle</string>
+</resources>
