@@ -31,6 +31,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled = true
+        multiDexKeepProguard = file("multidex-keep.pro")
 
         buildConfigField("String", "VERSION_DATE", "\"${utils.getDateString("MMM d, yyyy", "GMT+08:00")}\"")
 
@@ -64,12 +65,12 @@ android {
             signingConfigs.getByName(buildTypeRelease)
         }
         debug {
-            isMinifyEnabled = getByName(buildTypeRelease).isMinifyEnabled
+            isMinifyEnabled = false
             proguardFiles(*proguardFiles)
             niceSigningConfig?.let { signingConfig = it }
         }
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(*proguardFiles)
             niceSigningConfig?.let { signingConfig = it }
         }
@@ -151,6 +152,12 @@ androidComponents {
 }
 
 dependencies {
+
+    // Kotlin Runtime
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.2.21")
+
+    // JetBrains Annotations
+    implementation("org.jetbrains:annotations:26.0.2")
 
     // Plugin API: Common API
     implementation(files("$rootDir/libs/common-plugin-api.aar"))
