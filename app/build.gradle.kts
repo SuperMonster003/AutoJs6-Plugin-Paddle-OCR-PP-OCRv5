@@ -1,5 +1,5 @@
-import com.android.build.gradle.internal.api.ApplicationVariantImpl
-import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+import com.android.build.api.variant.FilterConfiguration
+import org.gradle.api.provider.Property
 
 plugins {
     id("org.autojs.build.utils")
@@ -7,8 +7,6 @@ plugins {
     id("org.autojs.build.signs")
     id("org.autojs.build.jvm-convention")
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    kotlin("plugin.parcelize")
 }
 
 val globalApplicationId = "io.github.supermonster003.autojs6.plugin.paddleocr.v5"
@@ -22,7 +20,7 @@ android {
     compileSdk = versions.sdkVersionCompile
 
     defaultConfig {
-        applicationId = applicationId
+        applicationId = globalApplicationId
 
         minSdk = versions.sdkVersionMin
         targetSdk = versions.sdkVersionTarget
@@ -59,7 +57,7 @@ android {
 
     buildTypes {
         val proguardFiles = arrayOf<Any>(
-            getDefaultProguardFile("proguard-android.txt"),
+            getDefaultProguardFile("proguard-android-optimize.txt"),
             "proguard-rules.pro",
         )
         val niceSigningConfig = takeIf { signs.isValid }?.let {
@@ -113,19 +111,6 @@ android {
         ).let { resources.excludes.addAll(it) }
     }
 
-    applicationVariants.all {
-        outputs.map { it as BaseVariantOutputImpl }.forEach {
-            it.outputFileName = run {
-                val variant = this@all as ApplicationVariantImpl
-                val name = rootProject.name
-                val version = variant.versionName.replace("\\s".toRegex(), "-") // e.g. 0.1.0
-                val architecture = it.getFilter("ABI") ?: "universal"
-                val extension = utils.FILE_EXTENSION_APK
-                "$name-v$version-$architecture.$extension".lowercase()
-            }
-        }
-    }
-
     splits {
         // Configures multiple APKs based on ABI.
         abi {
@@ -143,7 +128,32 @@ android {
     }
 }
 
+androidComponents {
+    onVariants { variant ->
+        variant.outputs.forEach { output ->
+            val architecture = output.filters.find {
+                it.filterType == FilterConfiguration.FilterType.ABI
+            }?.identifier ?: "universal"
+            val outputFileNameProperty = output.javaClass.methods.firstOrNull {
+                it.name == "getOutputFileName" && it.parameterTypes.isEmpty()
+            }?.invoke(output) as? Property<*>
+
+            @Suppress("UNCHECKED_CAST")
+            (outputFileNameProperty as? Property<String>)?.set(
+                output.versionName.map { versionName ->
+                    val version = versionName.replace("\\s".toRegex(), "-")
+                    val extension = utils.FILE_EXTENSION_APK
+                    "${rootProject.name}-v$version-$architecture.$extension".lowercase()
+                }
+            )
+        }
+    }
+}
+
 dependencies {
+
+    // Plugin API: Common API
+    implementation(files("$rootDir/libs/common-plugin-api.aar"))
 
     // Plugin API: OCR API
     implementation(files("$rootDir/libs/paddle-ocr-api.aar"))

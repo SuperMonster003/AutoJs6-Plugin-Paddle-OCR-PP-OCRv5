@@ -11,16 +11,20 @@ import android.os.SharedMemory
 import androidx.annotation.RequiresApi
 import com.baidu.paddle.lite.ocr.PaddleOcrEngine
 import com.baidu.paddle.lite.ocr.VariantSpec
+import org.autojs.plugin.common.api.PluginInfo
+import org.autojs.plugin.common.api.PluginCapabilityKeys
 import org.autojs.plugin.paddle.ocr.api.IOcrPlugin
 import org.autojs.plugin.paddle.ocr.api.OcrOptions
 import org.autojs.plugin.paddle.ocr.api.OcrResult
-import org.autojs.plugin.paddle.ocr.api.PluginInfo
+import org.autojs.plugin.paddle.ocr.api.PaddleOcrOptionExtraKeys
+import org.autojs.plugin.paddle.ocr.api.PaddleOcrPluginCapabilityKeys
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
 class OcrService : Service() {
 
     private val engine by lazy { PaddleOcrEngine(this, VariantSpec.v5()) }
+    private val ocrLock = Any()
 
     private val binder = object : IOcrPlugin.Stub() {
 
@@ -31,14 +35,15 @@ class OcrService : Service() {
                 id = "paddle-ocr-pp-ocrv5"
                 engine = "paddle-ocr"
                 variant = "v5"
-                description = getString(R.string.plugin_description)
+                // description = "Custom description (hard-coded)"
+                // instruction = "Custom instruction (hard-coded)"
                 versionName = BuildConfig.VERSION_NAME
                 versionCode = BuildConfig.VERSION_CODE.toLong()
                 versionDate = BuildConfig.VERSION_DATE
+                supportedAbis = arrayOf("arm64-v8a", "armeabi-v7a")
                 capabilities = android.os.Bundle().apply {
-                    putBoolean("supportsCls", true)
-                    putBoolean("supportsRawImage", true)
-                    putString("labels", "labels/ppocr_keys_ocrv5.txt")
+                    putInt(PluginCapabilityKeys.REQUIRES_HOST_VERSION, 3835)
+                    putBoolean(PaddleOcrPluginCapabilityKeys.SUPPORTS_RAW_IMAGE, true)
                 }
             }
         }
@@ -46,17 +51,25 @@ class OcrService : Service() {
         override fun recognizeText(
             image: ParcelFileDescriptor,
             options: OcrOptions,
-        ): List<String> {
+        ): List<String> = synchronized(ocrLock) {
             val bmp = decodeImage(image, options)
-            return engine.recognizeText(bmp, options)
+            try {
+                engine.recognizeText(bmp, options)
+            } finally {
+                recycleDecodedBitmap(bmp)
+            }
         }
 
         override fun detect(
             image: ParcelFileDescriptor,
             options: OcrOptions,
-        ): List<OcrResult> {
+        ): List<OcrResult> = synchronized(ocrLock) {
             val bmp = decodeImage(image, options)
-            return engine.detect(bmp, options)
+            try {
+                engine.detect(bmp, options)
+            } finally {
+                recycleDecodedBitmap(bmp)
+            }
         }
     }
 
@@ -64,11 +77,11 @@ class OcrService : Service() {
 
     private fun decodeImage(descriptor: ParcelFileDescriptor, options: OcrOptions): Bitmap {
         val extras = options.extras
-        val useRaw = extras?.getBoolean(EXTRA_RAW_IMAGE, false) == true
+        val useRaw = extras?.getBoolean(PaddleOcrOptionExtraKeys.RAW_IMAGE, false) == true
         if (useRaw) {
-            val width = extras.getInt(EXTRA_RAW_WIDTH, -1)
-            val height = extras.getInt(EXTRA_RAW_HEIGHT, -1)
-            val stride = extras.getInt(EXTRA_RAW_STRIDE, width * 4)
+            val width = extras.getInt(PaddleOcrOptionExtraKeys.RAW_WIDTH, -1)
+            val height = extras.getInt(PaddleOcrOptionExtraKeys.RAW_HEIGHT, -1)
+            val stride = extras.getInt(PaddleOcrOptionExtraKeys.RAW_STRIDE, width * 4)
             if (width > 0 && height > 0) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
                     val decoded = runCatching { tryDecodeSharedMemory(descriptor, width, height, stride) }.getOrNull()
@@ -82,6 +95,12 @@ class OcrService : Service() {
         }
         return descriptor.use { BitmapFactory.decodeFileDescriptor(it.fileDescriptor) }
             ?: error("decode image failed")
+    }
+
+    private fun recycleDecodedBitmap(bitmap: Bitmap) {
+        if (!bitmap.isRecycled) {
+            bitmap.recycle()
+        }
     }
 
     private fun decodeRawStream(descriptor: ParcelFileDescriptor, width: Int, height: Int, stride: Int): Bitmap {
@@ -122,13 +141,17 @@ class OcrService : Service() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 SharedMemory.fromFileDescriptor(dup)
             } else {
+                runCatching { dup.close() }
                 return null
             }
         } catch (_: Throwable) {
             runCatching { dup.close() }
             return null
         }
-        val buffer = shm.mapReadOnly()
+        val buffer = runCatching { shm.mapReadOnly() }.getOrElse {
+            shm.close()
+            throw it
+        }
         buffer.order(ByteOrder.nativeOrder())
         try {
             val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
@@ -153,12 +176,5 @@ class OcrService : Service() {
             SharedMemory.unmap(buffer)
             shm.close()
         }
-    }
-
-    companion object {
-        private const val EXTRA_RAW_IMAGE = "rawImage"
-        private const val EXTRA_RAW_WIDTH = "rawWidth"
-        private const val EXTRA_RAW_HEIGHT = "rawHeight"
-        private const val EXTRA_RAW_STRIDE = "rawStride"
     }
 }

@@ -12,7 +12,6 @@ plugins {
     id("org.autojs.build.properties")
     id("org.autojs.build.jvm-convention")
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
 }
 
 ext {
@@ -87,7 +86,7 @@ utils.configureLibraryLifecycleHooks(
 )
 
 android {
-    namespace = "com.baidu.paddle.lite.ocr"
+    namespace = "io.github.supermonster003.autojs6.plugin.paddleocr.v5.nativecore"
 
     ndkVersion = versionMap["NDK"] as String
     compileSdk = versionMap["COMPILE_SDK"] as Int
