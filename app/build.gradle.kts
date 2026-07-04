@@ -54,7 +54,7 @@ android {
             buildConfigField("String", "MODEL_PROFILE", "\"mobile\"")
             resValue("string", "app_name", "Paddle OCR (PP-OCRv5 Mobile)")
             resValue("string", "plugin_id", "paddle-ocr-pp-ocrv5")
-            resValue("string", "model_profile", "mobile")
+            resValue("string", "model_profile", "Mobile")
         }
 
         create("server") {
@@ -65,7 +65,7 @@ android {
             buildConfigField("String", "MODEL_PROFILE", "\"server\"")
             resValue("string", "app_name", "Paddle OCR (PP-OCRv5 Server)")
             resValue("string", "plugin_id", "paddle-ocr-pp-ocrv5-server")
-            resValue("string", "model_profile", "server")
+            resValue("string", "model_profile", "Server")
         }
 
         create("english") {
@@ -76,7 +76,7 @@ android {
             buildConfigField("String", "MODEL_PROFILE", "\"english\"")
             resValue("string", "app_name", "Paddle OCR (PP-OCRv5 English)")
             resValue("string", "plugin_id", "paddle-ocr-pp-ocrv5-english")
-            resValue("string", "model_profile", "english")
+            resValue("string", "model_profile", "English")
         }
 
         create("korean") {
@@ -87,7 +87,7 @@ android {
             buildConfigField("String", "MODEL_PROFILE", "\"korean\"")
             resValue("string", "app_name", "Paddle OCR (PP-OCRv5 Korean)")
             resValue("string", "plugin_id", "paddle-ocr-pp-ocrv5-korean")
-            resValue("string", "model_profile", "korean")
+            resValue("string", "model_profile", "Korean")
         }
 
         create("latin") {
@@ -98,7 +98,7 @@ android {
             buildConfigField("String", "MODEL_PROFILE", "\"latin\"")
             resValue("string", "app_name", "Paddle OCR (PP-OCRv5 Latin)")
             resValue("string", "plugin_id", "paddle-ocr-pp-ocrv5-latin")
-            resValue("string", "model_profile", "latin")
+            resValue("string", "model_profile", "Latin")
         }
 
         create("eslav") {
@@ -109,7 +109,7 @@ android {
             buildConfigField("String", "MODEL_PROFILE", "\"eslav\"")
             resValue("string", "app_name", "Paddle OCR (PP-OCRv5 Eslav)")
             resValue("string", "plugin_id", "paddle-ocr-pp-ocrv5-eslav")
-            resValue("string", "model_profile", "eslav")
+            resValue("string", "model_profile", "Eslav")
         }
 
         create("thai") {
@@ -120,7 +120,7 @@ android {
             buildConfigField("String", "MODEL_PROFILE", "\"thai\"")
             resValue("string", "app_name", "Paddle OCR (PP-OCRv5 Thai)")
             resValue("string", "plugin_id", "paddle-ocr-pp-ocrv5-thai")
-            resValue("string", "model_profile", "thai")
+            resValue("string", "model_profile", "Thai")
         }
 
         create("greek") {
@@ -131,7 +131,7 @@ android {
             buildConfigField("String", "MODEL_PROFILE", "\"greek\"")
             resValue("string", "app_name", "Paddle OCR (PP-OCRv5 Greek)")
             resValue("string", "plugin_id", "paddle-ocr-pp-ocrv5-greek")
-            resValue("string", "model_profile", "greek")
+            resValue("string", "model_profile", "Greek")
         }
 
         create("arabic") {
@@ -142,7 +142,7 @@ android {
             buildConfigField("String", "MODEL_PROFILE", "\"arabic\"")
             resValue("string", "app_name", "Paddle OCR (PP-OCRv5 Arabic)")
             resValue("string", "plugin_id", "paddle-ocr-pp-ocrv5-arabic")
-            resValue("string", "model_profile", "arabic")
+            resValue("string", "model_profile", "Arabic")
         }
 
         create("cyrillic") {
@@ -153,7 +153,7 @@ android {
             buildConfigField("String", "MODEL_PROFILE", "\"cyrillic\"")
             resValue("string", "app_name", "Paddle OCR (PP-OCRv5 Cyrillic)")
             resValue("string", "plugin_id", "paddle-ocr-pp-ocrv5-cyrillic")
-            resValue("string", "model_profile", "cyrillic")
+            resValue("string", "model_profile", "Cyrillic")
         }
 
         create("devanagari") {
@@ -164,7 +164,7 @@ android {
             buildConfigField("String", "MODEL_PROFILE", "\"devanagari\"")
             resValue("string", "app_name", "Paddle OCR (PP-OCRv5 Devanagari)")
             resValue("string", "plugin_id", "paddle-ocr-pp-ocrv5-devanagari")
-            resValue("string", "model_profile", "devanagari")
+            resValue("string", "model_profile", "Devanagari")
         }
 
         create("telugu") {
@@ -175,7 +175,7 @@ android {
             buildConfigField("String", "MODEL_PROFILE", "\"telugu\"")
             resValue("string", "app_name", "Paddle OCR (PP-OCRv5 Telugu)")
             resValue("string", "plugin_id", "paddle-ocr-pp-ocrv5-telugu")
-            resValue("string", "model_profile", "telugu")
+            resValue("string", "model_profile", "Telugu")
         }
 
         create("tamil") {
@@ -186,7 +186,7 @@ android {
             buildConfigField("String", "MODEL_PROFILE", "\"tamil\"")
             resValue("string", "app_name", "Paddle OCR (PP-OCRv5 Tamil)")
             resValue("string", "plugin_id", "paddle-ocr-pp-ocrv5-tamil")
-            resValue("string", "model_profile", "tamil")
+            resValue("string", "model_profile", "Tamil")
         }
     }
 
