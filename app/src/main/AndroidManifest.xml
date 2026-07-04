@@ -1,11 +1,13 @@
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="org.autojs.permission.PLUGIN" />
 
     <application
-        android:label="Paddle OCR (PP-OCRv5)"
-        android:icon="@mipmap/ic_launcher">
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:extractNativeLibs="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
 
         <meta-data
             android:name="org.autojs.plugin.WAKE_ACTIVITY"
@@ -29,11 +31,11 @@
         </activity>
 
         <service
-            android:name=".OcrService"
+            android:name=".PpOcrV5PluginService"
             android:exported="true"
             android:permission="org.autojs.permission.PLUGIN">
             <intent-filter>
-                <action android:name="org.autojs.plugin.PADDLE_OCR"/>
+                <action android:name="org.autojs.plugin.PADDLE_OCR" />
                 <category android:name="paddle-ocr" />
             </intent-filter>
         </service>

@@ -5,8 +5,9 @@ rootProject.name = "autojs6-plugin-paddle-ocr-pp-ocrv5"
 includeBuild("build-logic")
 
 private val libs = listOf(
-    "paddleocr",
     "org-opencv-4_8_0",
+    "ppocr-android-sdk",
+    "ppocrv5-plugin-runtime",
 )
 
 include(
