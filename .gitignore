@@ -16,6 +16,7 @@ desktop.ini
 sync.ffs_db
 
 .bak/
+.cache/
 .git/
 .gradle/
 .hprof/
