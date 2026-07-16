@@ -7,7 +7,6 @@ plugins {
     id("org.autojs.build.signs")
     id("org.autojs.build.jvm-convention")
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
 }
 
 val globalApplicationId = "io.github.supermonster003.autojs6.plugin.paddleocr.v5"
@@ -42,6 +41,8 @@ android {
         ndk {
             abiFilters += listOf("arm64-v8a", "armeabi-v7a")
         }
+
+        missingDimensionStrategy("ocrProfile", "mobile")
     }
 
     flavorDimensions += "ocrProfile"
@@ -324,17 +325,15 @@ dependencies {
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib:2.2.21")
     implementation("org.jetbrains.kotlin:kotlin-parcelize-runtime:2.2.21")
-
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
     implementation("org.jetbrains:annotations:26.0.2")
 
     implementation(files("$rootDir/libs/common-plugin-api.aar"))
-
     implementation(files("$rootDir/libs/paddle-ocr-api.aar"))
 
     implementation(project(":libs:ppocrv5-plugin-runtime"))
     implementation(project(":libs:ppocr-android-sdk"))
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
     implementation(libs.core.ktx)
     implementation(libs.annotation.jvm)
 }
