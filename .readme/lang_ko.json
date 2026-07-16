@@ -1,0 +1,47 @@
+{
+  "$name": "한국어",
+  "text_current_lowercase": "현재",
+  "text_plugin_synopsis": "PP-OCRv5 기반 Paddle OCR 텍스트 인식 플러그인",
+  "h3_languages_with_ascii": "언어",
+  "p_languages_all_supported_for_readme": "현재 README.md는 다음 언어를 지원합니다",
+  "h3_introduction": "소개",
+  "p_introduction": "AutoJs6 Paddle OCR PP-OCRv5 플러그인은 PaddleOCR ONNX Runtime 기반 텍스트 검출 및 텍스트 인식을 AutoJs6에 제공합니다. 모바일 기본 모델, 고정확도 서버 모델, 다국어 인식 모델을 지원합니다.",
+  "h3_functions": "기능",
+  "features": [
+    "`paddle-ocr` 플러그인 서비스를 제공하며 기본 플러그인 ID는 `paddle-ocr-pp-ocrv5`입니다.",
+    "AutoJs6의 `ocr.paddle.recognizeText(...)` 및 `ocr.paddle(...)` 호출을 지원합니다.",
+    "스크린샷, 로컬 이미지 경로, raw 이미지 데이터 입력을 지원하며 인식 텍스트, 신뢰도, 사각형 경계, 네 점 좌표를 반환합니다.",
+    "`mobile`/`server`/`english`/`korean`/`latin`/`eslav`/`thai`/`greek`/`arabic`/`cyrillic`/`devanagari`/`telugu`/`tamil` 제품 변형을 제공합니다.",
+    "플러그인 메타데이터, 사용 설명, README, CHANGELOG는 스페인어/프랑스어/러시아어/아랍어/일본어/한국어/영어/간체 중국어/홍콩 번체/대만 번체로 현지화되어 있습니다."
+  ],
+  "h3_profiles": "모델 프로필",
+  "p_profiles_intro": "현재 Gradle flavor 및 모델 프로필은 다음과 같습니다",
+  "profiles": [
+    "`mobile`: `PP-OCRv5_mobile_det` 및 `PP-OCRv5_mobile_rec`를 사용하는 기본 프로필입니다.",
+    "`server`: `PP-OCRv5_server_det` 및 `PP-OCRv5_server_rec`를 사용하는 고정확도 프로필입니다.",
+    "`english`/`korean`/`latin`/`eslav`/`thai`/`greek`/`arabic`/`cyrillic`/`devanagari`/`telugu`/`tamil`: `PP-OCRv5_mobile_det`를 재사용하고 해당 PP-OCRv5 다국어 인식 모델을 사용합니다."
+  ],
+  "h3_usage": "사용 예",
+  "p_usage_screenshot": "스크린샷의 텍스트 내용을 인식합니다",
+  "p_usage_file": "로컬 이미지 파일의 텍스트 내용을 인식합니다",
+  "p_usage_docs": "더 많은 사용 예는 AutoJs6 문서의 [Optical Character Recognition (OCR)]({{ docs_ocr_url }}) 섹션을 참고하세요",
+  "h3_prepare_models": "모델 준비",
+  "prepare_notes": [
+    "스크립트는 Paddle 모델 소스에서 공식 ONNX tar 패키지를 다운로드하고 `inference.onnx` 및 `inference.yml`을 각 flavor assets에 복사합니다.",
+    "`--profile mobile` 같은 옵션으로 하나의 모델 프로필만 준비할 수 있습니다.",
+    "모바일 검출 모델은 `app/src/sharedMobileDet/assets`를 통해 공유됩니다."
+  ],
+  "h3_release_history": "릴리스 기록",
+  "h5_for_more_release_history": "더 많은 릴리스 기록",
+  "h3_build": "빌드",
+  "text_build_all_profiles": "모든 프로필 빌드",
+  "text_release_build": "Release 빌드",
+  "p_build_params": "빌드 매개변수는 `version.properties`에서 가져옵니다. 현재 최소 SDK는 {{ min_sdk_version }}이고 대상 SDK는 {{ target_sdk_version }}입니다",
+  "h3_resource_layout": "리소스 구조",
+  "p_resource_layout": "`strings.xml`에는 현지화된 플러그인 설명이 포함됩니다. `plugin_instruction.md`에는 호스트에서 표시하는 사용 설명이 포함됩니다. README와 CHANGELOG는 `.python/generate_markdown.py`가 JSON 소스에서 생성하며, 저장소 루트에는 `README.md`만 유지합니다",
+  "h3_links": "링크",
+  "text_link_autojs6_ocr_docs": "AutoJs6 OCR 문서",
+  "text_link_paddleocr_official": "PaddleOCR 공식 프로젝트",
+  "text_link_model_source": "PP-OCRv5 ONNX 모델 소스",
+  "text_link_onnxruntime_android": "ONNX Runtime Android 문서"
+}

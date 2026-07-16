@@ -1,4 +1,4 @@
-Paddle OCR を使って、スクリーンショット内のテキスト内容を認識します:
+Paddle OCR を使ってスクリーンショット内のテキスト内容を認識します:
 
 ```js
 /* 完全な書き方. */
@@ -15,7 +15,7 @@ ocr.paddle.recognizeText();
 ocr.paddle();
 ```
 
-Paddle OCR を使って、ローカル画像ファイル内のテキスト内容を認識します (`test.png` を例とします):
+Paddle OCR を使ってローカル画像ファイル内のテキスト内容を認識します (`test.png` を例とします):
 
 ```js
 /* 完全な書き方. */
@@ -32,5 +32,5 @@ ocr.paddle.recognizeText("test.png");
 ocr.paddle("test.png");
 ```
 
-その他の使用方法については、AutoJs6 アプリドキュメントの [光学文字認識 (OCR)](https://docs.autojs6.com/#/ocr)
+その他の使用方法については AutoJs6 アプリドキュメントの [光学文字認識 (OCR)](https://docs.autojs6.com/#/ocr)
 セクションを参照してください.

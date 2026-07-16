@@ -1,0 +1,47 @@
+{
+  "$name": "繁體中文 (香港)",
+  "text_current_lowercase": "當前",
+  "text_plugin_synopsis": "基於 PP-OCRv5 的 Paddle OCR 文本識別插件",
+  "h3_languages_with_ascii": "語言 (Languages)",
+  "p_languages_all_supported_for_readme": "目前 README.md 支援以下語言",
+  "h3_introduction": "簡介",
+  "p_introduction": "AutoJs6 Paddle OCR PP-OCRv5 插件為 AutoJs6 提供基於 PaddleOCR ONNX Runtime 的文字檢測和文本識別能力, 支援移動端默認模型/高精度服務端模型和多語種識別模型.",
+  "h3_functions": "功能",
+  "features": [
+    "提供 `paddle-ocr` 插件服務, 默認插件 ID 為 `paddle-ocr-pp-ocrv5`.",
+    "支援 AutoJs6 中的 `ocr.paddle.recognizeText(...)` 和 `ocr.paddle(...)` 調用.",
+    "支援屏幕截圖/本地圖像路徑和原始圖像數據輸入, 返回識別文本/置信度/矩形邊界和四點坐標.",
+    "提供 `mobile`/`server`/`english`/`korean`/`latin`/`eslav`/`thai`/`greek`/`arabic`/`cyrillic`/`devanagari`/`telugu`/`tamil` 產品變體.",
+    "插件資訊/使用說明/README 與 CHANGELOG 均支援西班牙語/法語/俄語/阿拉伯語/日語/韓語/英語/簡體中文/香港繁體/台灣繁體."
+  ],
+  "h3_profiles": "模型配置",
+  "p_profiles_intro": "目前 Gradle flavor 與模型配置包括",
+  "profiles": [
+    "`mobile`: 默認配置, 使用 `PP-OCRv5_mobile_det` 和 `PP-OCRv5_mobile_rec`.",
+    "`server`: 高精度配置, 使用 `PP-OCRv5_server_det` 和 `PP-OCRv5_server_rec`.",
+    "`english`/`korean`/`latin`/`eslav`/`thai`/`greek`/`arabic`/`cyrillic`/`devanagari`/`telugu`/`tamil`: 複用 `PP-OCRv5_mobile_det`, 並使用對應 PP-OCRv5 多語種識別模型."
+  ],
+  "h3_usage": "使用示例",
+  "p_usage_screenshot": "識別屏幕截圖中的文本內容",
+  "p_usage_file": "識別本地圖像文件中的文本內容",
+  "p_usage_docs": "更多使用方式, 可參閲 AutoJs6 應用文檔的 [光學字符識別 (OCR)]({{ docs_ocr_url }}) 章節",
+  "h3_prepare_models": "準備模型",
+  "prepare_notes": [
+    "腳本會從 Paddle 模型源下載官方 ONNX tar 包, 並複製 `inference.onnx` 與 `inference.yml` 到各 flavor assets.",
+    "可使用 `--profile mobile` 等參數只準備單個模型配置.",
+    "移動端檢測模型會共享到 `app/src/sharedMobileDet/assets`."
+  ],
+  "h3_release_history": "發行歷史",
+  "h5_for_more_release_history": "更多發行歷史可參閱",
+  "h3_build": "構建",
+  "text_build_all_profiles": "構建全部配置",
+  "text_release_build": "Release 構建",
+  "p_build_params": "構建參數來自 `version.properties`, 目前最低 SDK 為 {{ min_sdk_version }}, 目標 SDK 為 {{ target_sdk_version }}",
+  "h3_resource_layout": "資源結構",
+  "p_resource_layout": "`strings.xml` 提供插件描述本地化; `plugin_instruction.md` 提供宿主側展示的插件使用說明. README 與 CHANGELOG 由 `.python/generate_markdown.py` 根據 JSON 源文件生成, 根目錄僅保留 `README.md`",
+  "h3_links": "相關鏈接",
+  "text_link_autojs6_ocr_docs": "AutoJs6 OCR 文檔",
+  "text_link_paddleocr_official": "PaddleOCR 官方項目",
+  "text_link_model_source": "PP-OCRv5 ONNX 模型源",
+  "text_link_onnxruntime_android": "ONNX Runtime Android 文檔"
+}

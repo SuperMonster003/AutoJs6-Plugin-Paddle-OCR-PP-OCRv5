@@ -1,4 +1,5 @@
 import com.android.build.api.variant.FilterConfiguration
+import org.gradle.api.file.DuplicatesStrategy
 import org.gradle.api.provider.Property
 
 plugins {
@@ -344,21 +345,23 @@ tasks {
     }
 
     register<Copy>("appendDigestToReleasedFiles") {
-        val src = buildTypeRelease
-        val dst = "${src}s"
         val ext = utils.FILE_EXTENSION_APK
-
-        if (!file(src).isDirectory) {
-            return@register
+        val dst = "${buildTypeRelease}s"
+        val srcDirs = listOf(file(buildTypeRelease)) + android.productFlavors.map { flavor ->
+            file("${flavor.name}/$buildTypeRelease")
         }
 
-        from(src); into(dst); include("*.$ext")
-
-        rename { name ->
-            utils.digestCRC32(file("${src}/$name")).let { digest ->
-                name.replace(Regex("^(.+?)(\\.$ext)$"), "$1-$digest$2")
+        from(srcDirs) {
+            include("*.$ext")
+            eachFile {
+                val suffix = ".$ext"
+                val digest = utils.digestCRC32(file)
+                name = "${name.removeSuffix(suffix)}-$digest$suffix"
             }
         }
+        into(dst)
+        includeEmptyDirs = false
+        duplicatesStrategy = DuplicatesStrategy.FAIL
 
         doLast { println("Destination: ${file(dst)}") }
     }

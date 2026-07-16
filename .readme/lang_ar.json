@@ -1,0 +1,47 @@
+{
+  "$name": "العربية",
+  "text_current_lowercase": "الحالي",
+  "text_plugin_synopsis": "ملحق Paddle OCR للتعرف على النصوص استنادا إلى PP-OCRv5",
+  "h3_languages_with_ascii": "اللغات",
+  "p_languages_all_supported_for_readme": "يدعم README.md الحالي اللغات التالية",
+  "h3_introduction": "مقدمة",
+  "p_introduction": "يوفر ملحق AutoJs6 Paddle OCR PP-OCRv5 لا AutoJs6 كشف النص والتعرف على النص استنادا إلى PaddleOCR ONNX Runtime. يدعم نموذج الهاتف الافتراضي, ونموذج الخادم عالي الدقة, ونماذج التعرف متعددة اللغات.",
+  "h3_functions": "الميزات",
+  "features": [
+    "يوفر خدمة الملحق `paddle-ocr` مع معرف الملحق الافتراضي `paddle-ocr-pp-ocrv5`.",
+    "يدعم استدعاءات AutoJs6 مثل `ocr.paddle.recognizeText(...)` و `ocr.paddle(...)`.",
+    "يدعم لقطة الشاشة, ومسار الصورة المحلي, وبيانات الصورة الخام, ويعيد النص المتعرف عليه, والثقة, والحدود المستطيلة, وإحداثيات الرباعي.",
+    "يوفر متغيرات المنتج `mobile` و `server` و `english` و `korean` و `latin` و `eslav` و `thai` و `greek` و `arabic` و `cyrillic` و `devanagari` و `telugu` و `tamil`.",
+    "تمت ترجمة بيانات الملحق وتعليمات الاستخدام و README و CHANGELOG إلى الإسبانية والفرنسية والروسية والعربية واليابانية والكورية والإنجليزية والصينية المبسطة والصينية التقليدية في هونغ كونغ والصينية التقليدية في تايوان."
+  ],
+  "h3_profiles": "ملفات النموذج",
+  "p_profiles_intro": "تتضمن Gradle flavors وملفات النموذج الحالية",
+  "profiles": [
+    "`mobile`: ملف افتراضي يستخدم `PP-OCRv5_mobile_det` و `PP-OCRv5_mobile_rec`.",
+    "`server`: ملف عالي الدقة يستخدم `PP-OCRv5_server_det` و `PP-OCRv5_server_rec`.",
+    "`english`/`korean`/`latin`/`eslav`/`thai`/`greek`/`arabic`/`cyrillic`/`devanagari`/`telugu`/`tamil`: يعيد استخدام `PP-OCRv5_mobile_det` ويستخدم نموذج التعرف متعدد اللغات PP-OCRv5 المطابق."
+  ],
+  "h3_usage": "الاستخدام",
+  "p_usage_screenshot": "التعرف على محتوى النص في لقطة شاشة",
+  "p_usage_file": "التعرف على محتوى النص في ملف صورة محلي",
+  "p_usage_docs": "لمزيد من أمثلة الاستخدام, راجع قسم [Optical Character Recognition (OCR)]({{ docs_ocr_url }}) في وثائق AutoJs6",
+  "h3_prepare_models": "تحضير النماذج",
+  "prepare_notes": [
+    "يقوم السكربت بتنزيل حزم ONNX tar الرسمية من مصدر نماذج Paddle وينسخ `inference.onnx` مع `inference.yml` إلى assets لكل flavor.",
+    "استخدم خيارات مثل `--profile mobile` لتحضير ملف نموذج واحد فقط.",
+    "تتم مشاركة نموذج كشف الهاتف عبر `app/src/sharedMobileDet/assets`."
+  ],
+  "h3_release_history": "سجل الإصدارات",
+  "h5_for_more_release_history": "لمزيد من سجل الإصدارات",
+  "h3_build": "البناء",
+  "text_build_all_profiles": "بناء كل الملفات",
+  "text_release_build": "بناء Release",
+  "p_build_params": "تأتي معاملات البناء من `version.properties`; الحد الأدنى الحالي من SDK هو {{ min_sdk_version }} و SDK الهدف هو {{ target_sdk_version }}",
+  "h3_resource_layout": "بنية الموارد",
+  "p_resource_layout": "يحتوي `strings.xml` على أوصاف الملحق المترجمة; ويحتوي `plugin_instruction.md` على تعليمات الاستخدام التي يعرضها المضيف. يتم إنشاء README و CHANGELOG من مصادر JSON بواسطة `.python/generate_markdown.py`, ويحتفظ جذر المستودع بملف `README.md` فقط",
+  "h3_links": "روابط",
+  "text_link_autojs6_ocr_docs": "وثائق AutoJs6 OCR",
+  "text_link_paddleocr_official": "مشروع PaddleOCR الرسمي",
+  "text_link_model_source": "مصدر نماذج PP-OCRv5 ONNX",
+  "text_link_onnxruntime_android": "وثائق ONNX Runtime Android"
+}

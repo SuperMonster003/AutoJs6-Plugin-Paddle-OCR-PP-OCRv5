@@ -1,0 +1,21 @@
+{
+  "changelog_label_hint": "Hint",
+  "changelog_label_feature": "Feature",
+  "changelog_label_fix": "Fix",
+  "changelog_label_improvement": "Improvement",
+  "changelog_label_dependency": "Dependency",
+  "$data": {
+    "v1.0.0": {
+      "released_date": "2026/07/17",
+      "feature": [
+        "Added the Paddle OCR PP-OCRv5 plugin service with default plugin ID `paddle-ocr-pp-ocrv5` and engine `paddle-ocr`",
+        "Added AutoJs6 OCR calls through `ocr.paddle.recognizeText(...)` and `ocr.paddle(...)`",
+        "Implemented PP-OCRv5 text detection, text recognition, CTC decoding, and quadrilateral result coordinates with ONNX Runtime Android and OpenCV",
+        "Added screenshot, local image path, and raw image data input, returning text, confidence, rectangular bounds, and timing metadata",
+        "Added product variants for `mobile`, `server`, `english`, `korean`, `latin`, `eslav`, `thai`, `greek`, `arabic`, `cyrillic`, `devanagari`, `telugu`, and `tamil`",
+        "Added localized plugin metadata and usage instructions for Spanish, French, Russian, Arabic, Japanese, Korean, English, Simplified Chinese, Hong Kong Traditional Chinese, and Taiwan Traditional Chinese",
+        "Added JSON source based README and CHANGELOG generation through `.python/generate_markdown.py`"
+      ]
+    }
+  }
+}

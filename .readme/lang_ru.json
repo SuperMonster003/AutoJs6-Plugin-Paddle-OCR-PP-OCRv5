@@ -1,0 +1,47 @@
+{
+  "$name": "Русский",
+  "text_current_lowercase": "текущий",
+  "text_plugin_synopsis": "Плагин распознавания текста Paddle OCR на базе PP-OCRv5",
+  "h3_languages_with_ascii": "Языки",
+  "p_languages_all_supported_for_readme": "Текущий README.md поддерживает следующие языки",
+  "h3_introduction": "Введение",
+  "p_introduction": "Плагин AutoJs6 Paddle OCR PP-OCRv5 предоставляет AutoJs6 обнаружение текста и распознавание текста на базе PaddleOCR ONNX Runtime. Он поддерживает мобильную модель по умолчанию, высокоточную серверную модель и многоязычные модели распознавания.",
+  "h3_functions": "Функции",
+  "features": [
+    "Предоставляет сервис плагина `paddle-ocr` с ID плагина по умолчанию `paddle-ocr-pp-ocrv5`.",
+    "Поддерживает вызовы AutoJs6, такие как `ocr.paddle.recognizeText(...)` и `ocr.paddle(...)`.",
+    "Поддерживает снимки экрана, локальные пути к изображениям и входные raw-данные изображения, возвращая распознанный текст, уверенность, прямоугольные границы и координаты четырехугольника.",
+    "Предоставляет варианты продукта `mobile`, `server`, `english`, `korean`, `latin`, `eslav`, `thai`, `greek`, `arabic`, `cyrillic`, `devanagari`, `telugu` и `tamil`.",
+    "Метаданные плагина, инструкции, README и CHANGELOG локализованы на испанский, французский, русский, арабский, японский, корейский, английский, упрощенный китайский, гонконгский традиционный китайский и тайваньский традиционный китайский."
+  ],
+  "h3_profiles": "Профили Моделей",
+  "p_profiles_intro": "Текущие Gradle flavors и профили моделей включают",
+  "profiles": [
+    "`mobile`: профиль по умолчанию с `PP-OCRv5_mobile_det` и `PP-OCRv5_mobile_rec`.",
+    "`server`: высокоточный профиль с `PP-OCRv5_server_det` и `PP-OCRv5_server_rec`.",
+    "`english`/`korean`/`latin`/`eslav`/`thai`/`greek`/`arabic`/`cyrillic`/`devanagari`/`telugu`/`tamil`: повторно использует `PP-OCRv5_mobile_det` и соответствующую многоязычную модель распознавания PP-OCRv5."
+  ],
+  "h3_usage": "Использование",
+  "p_usage_screenshot": "Распознать текстовое содержимое на снимке экрана",
+  "p_usage_file": "Распознать текстовое содержимое в локальном файле изображения",
+  "p_usage_docs": "Дополнительные примеры использования см. в разделе [Optical Character Recognition (OCR)]({{ docs_ocr_url }}) документации AutoJs6",
+  "h3_prepare_models": "Подготовка Моделей",
+  "prepare_notes": [
+    "Скрипт загружает официальные ONNX tar-пакеты из источника моделей Paddle и копирует `inference.onnx` вместе с `inference.yml` в assets каждого flavor.",
+    "Используйте параметры вроде `--profile mobile`, чтобы подготовить только один профиль модели.",
+    "Мобильная модель обнаружения совместно используется через `app/src/sharedMobileDet/assets`."
+  ],
+  "h3_release_history": "История Выпусков",
+  "h5_for_more_release_history": "Больше истории выпусков",
+  "h3_build": "Сборка",
+  "text_build_all_profiles": "Собрать все профили",
+  "text_release_build": "Release сборка",
+  "p_build_params": "Параметры сборки берутся из `version.properties`; текущий минимальный SDK равен {{ min_sdk_version }}, целевой SDK равен {{ target_sdk_version }}",
+  "h3_resource_layout": "Структура Ресурсов",
+  "p_resource_layout": "`strings.xml` содержит локализованные описания плагина; `plugin_instruction.md` содержит инструкции, отображаемые хостом. README и CHANGELOG генерируются из JSON-источников с помощью `.python/generate_markdown.py`, а в корне репозитория остается только `README.md`",
+  "h3_links": "Ссылки",
+  "text_link_autojs6_ocr_docs": "Документация AutoJs6 OCR",
+  "text_link_paddleocr_official": "Официальный проект PaddleOCR",
+  "text_link_model_source": "Источник ONNX моделей PP-OCRv5",
+  "text_link_onnxruntime_android": "Документация ONNX Runtime Android"
+}

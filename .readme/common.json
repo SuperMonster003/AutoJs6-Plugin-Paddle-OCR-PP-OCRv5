@@ -1,0 +1,8 @@
+{
+  "repo_url": "https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv5",
+  "docs_ocr_url": "https://docs.autojs6.com/#/ocr",
+  "paddleocr_url": "https://github.com/PaddlePaddle/PaddleOCR",
+  "model_source_url": "https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/paddle3.0.0",
+  "onnxruntime_android_url": "https://onnxruntime.ai/docs/tutorials/mobile/deploy-android.html",
+  "prepare_models_command": "python scripts\\prepare_ppocrv5_assets.py --profile all"
+}
