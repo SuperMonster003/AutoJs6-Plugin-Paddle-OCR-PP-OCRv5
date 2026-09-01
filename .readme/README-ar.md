@@ -2,7 +2,9 @@
 
 <div align="center">
   <p>
-    <img src="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv5/blob/master/app/src/main/res/mipmap/ic_launcher.png?raw=true" alt="autojs6-plugin-paddle-ocr-pp-ocrv5-ic-launcher" border="0" width="128" />
+    <picture>
+      <img src="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv5/blob/master/app/src/main/res/mipmap/ic_launcher.png?raw=true" alt="autojs6-plugin-paddle-ocr-pp-ocrv5-ic-launcher" border="0" width="128" />
+    </picture>
   </p>
 
   <p>ملحق Paddle OCR للتعرف على النصوص استنادا إلى PP-OCRv5</p>
@@ -10,10 +12,6 @@
   <p>
     <a href="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv5/releases"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv5?label=Release"/></a>
     <a href="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv5/issues"><img alt="GitHub closed issues" src="https://img.shields.io/github/issues/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv5?color=A24232&label=Issues"/></a>
-    <a href="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv5/commit/96c9b45bc90d5ac5516e6bb1f10848c628418dac"><img alt="Created" src="https://img.shields.io/date/1773539058?color=2e7d32&label=Created"/></a>
-    <br>
-    <a href="https://developer.android.com/studio/archive"><img alt="Android Studio" src="https://img.shields.io/badge/Android%20Studio-2023.3+-B64FC8"/></a>
-    <a href="https://www.jetbrains.com/idea/download/other.html"><img alt="IntelliJ IDEA" src="https://img.shields.io/badge/IntelliJ%20IDEA-2023.3+-EE4677"/></a>
     <a href="https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv5/blob/master/LICENSE"><img alt="GitHub License" src="https://img.shields.io/github/license/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv5?color=534BAE&label=License"/></a>
   </p>
 </div>
@@ -117,7 +115,7 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 # v1.0.0
 
-###### 2026/07/17
+###### 2026/09/01
 
 * `ميزة` تمت إضافة خدمة ملحق Paddle OCR PP-OCRv5 مع معرف الملحق الافتراضي `paddle-ocr-pp-ocrv5` والمحرك `paddle-ocr`
 * `ميزة` تمت إضافة استدعاءات OCR في AutoJs6 عبر `ocr.paddle.recognizeText(...)` و `ocr.paddle(...)`
@@ -126,10 +124,12 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 * `ميزة` تمت إضافة متغيرات المنتج `mobile` و `server` و `english` و `korean` و `latin` و `eslav` و `thai` و `greek` و `arabic` و `cyrillic` و `devanagari` و `telugu` و `tamil`
 * `ميزة` تمت إضافة بيانات الملحق وتعليمات الاستخدام المترجمة للإسبانية والفرنسية والروسية والعربية واليابانية والكورية والإنجليزية والصينية المبسطة والصينية التقليدية في هونغ كونغ والصينية التقليدية في تايوان
 * `ميزة` تمت إضافة إنشاء README و CHANGELOG من مصادر JSON عبر `.python/generate_markdown.py`
+* `إصلاح` تعذر تنشيط المكون الإضافي من مركز المكونات الإضافية بعد التثبيت على بعض الأنظمة
+* `تحسين` توحيد تخطيط README وطريقة إدارة إصدارات منصة Gradle
 
 ##### لمزيد من سجل الإصدارات
 
-* [CHANGELOG.md](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv5/blob/master/.changelog/CHANGELOG-ar.md)
+* [CHANGELOG.md](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv5/blob/master/app/src/main/assets/doc/CHANGELOG-ar.md)
 
 ******
 
