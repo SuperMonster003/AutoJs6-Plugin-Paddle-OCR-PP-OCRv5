@@ -5,6 +5,12 @@
   "changelog_label_improvement": "优化",
   "changelog_label_dependency": "依赖",
   "$data": {
+    "v1.0.1": {
+      "released_date": "2026/09/11",
+      "improvement": [
+        "构建阶段校验 64 位原生库的 16 KB 页大小对齐, 检查 manifest 契约并输出 JSON 报告"
+      ]
+    },
     "v1.0.0": {
       "released_date": "2026/09/01",
       "feature": [

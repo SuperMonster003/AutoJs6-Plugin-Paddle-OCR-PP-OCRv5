@@ -3,6 +3,7 @@ import org.gradle.api.file.DuplicatesStrategy
 import org.gradle.api.provider.Property
 
 plugins {
+    id("io.github.supermonster003.autojs6-native-alignment")
     id("org.autojs.build.utils")
     id("org.autojs.build.versions")
     id("org.autojs.build.signs")

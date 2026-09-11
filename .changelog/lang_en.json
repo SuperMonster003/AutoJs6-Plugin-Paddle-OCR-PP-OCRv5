@@ -5,6 +5,12 @@
   "changelog_label_improvement": "Improvement",
   "changelog_label_dependency": "Dependency",
   "$data": {
+    "v1.0.1": {
+      "released_date": "2026/09/11",
+      "improvement": [
+        "Build verification of 16 KB page alignment for 64-bit native libraries, including manifest contract checks and JSON reports"
+      ]
+    },
     "v1.0.0": {
       "released_date": "2026/09/01",
       "feature": [

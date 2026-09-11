@@ -5,6 +5,12 @@
   "changelog_label_improvement": "改善",
   "changelog_label_dependency": "依存関係",
   "$data": {
+    "v1.0.1": {
+      "released_date": "2026/09/11",
+      "improvement": [
+        "64 ビットのネイティブライブラリの 16 KB ページアラインメントをビルド時に検証, manifest 契約の検査と JSON レポートに対応"
+      ]
+    },
     "v1.0.0": {
       "released_date": "2026/09/01",
       "feature": [

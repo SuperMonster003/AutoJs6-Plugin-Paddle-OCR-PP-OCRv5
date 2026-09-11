@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-11",
+  "beforeSha256": "de0ec857b3c7c3b60bebfdabea8eb5cce9f9f38dae3ec63be301a86041560209",
+  "afterSha256": "7930aaca619e6551d45c38e94d94bde846d303001f43a5a81a3f2cf3fe4f5e52",
+  "replacedEntry": "jni/x86_64/libopencv_java4.so",
+  "originalLibrarySha256": "7a4d7800819a22cccc6f48ddaaaf9f16756d2eeb1b83cc9d1f069344b3760297",
+  "librarySha256": "33fce612532940b72721c618e5b3a0d979b0138a6f32dac412c41ce09411ab22",
+  "minLoadAlign": 16384,
+  "donorArtifactSha256": "869e3ee9cf0cbb6e76e8a02dd94cd12e6cd2445e4b6dc662f46ed8f715c8875a",
+  "donorRepository": "AutoJs6-Plugin-OpenCV",
+  "donorProvenance": "libs/opencv-native-4.8.0.provenance.json",
+  "note": "x86_64 is currently excluded by Paddle abiFilters; all other entries are unchanged."
+}

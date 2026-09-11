@@ -113,6 +113,12 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ******
 
+# v1.0.1
+
+###### 2026/09/11
+
+* `개선` 64비트 네이티브 라이브러리의 16 KB 페이지 정렬을 빌드 시 검증, manifest 계약 검사 및 JSON 보고서 지원
+
 # v1.0.0
 
 ###### 2026/09/01
@@ -183,3 +189,6 @@ app/src/main/res/raw-*/plugin_instruction.md
 - PaddleOCR 공식 프로젝트: https://github.com/PaddlePaddle/PaddleOCR
 - PP-OCRv5 ONNX 모델 소스: https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/paddle3.0.0
 - ONNX Runtime Android 문서: https://onnxruntime.ai/docs/tutorials/mobile/deploy-android.html
+
+
+[16 KB page alignment and build verification](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv5/blob/master/docs/16kb.md)

@@ -113,6 +113,12 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ******
 
+# v1.0.1
+
+###### 2026/09/11
+
+* `優化` 建置階段校驗 64 位原生函式庫的 16 KB 頁面大小對齊, 檢查 manifest 契約並輸出 JSON 報告
+
 # v1.0.0
 
 ###### 2026/09/01
@@ -183,3 +189,6 @@ app/src/main/res/raw-*/plugin_instruction.md
 - PaddleOCR 官方專案: https://github.com/PaddlePaddle/PaddleOCR
 - PP-OCRv5 ONNX 模型源: https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/paddle3.0.0
 - ONNX Runtime Android 文件: https://onnxruntime.ai/docs/tutorials/mobile/deploy-android.html
+
+
+[16 KB page alignment and build verification](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv5/blob/master/docs/16kb.md)

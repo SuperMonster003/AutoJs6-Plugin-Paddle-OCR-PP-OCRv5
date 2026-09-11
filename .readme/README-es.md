@@ -113,6 +113,12 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ******
 
+# v1.0.1
+
+###### 2026/09/11
+
+* `Mejora` Verificación de compilación de la alineación de páginas de 16 KB en bibliotecas nativas de 64 bits, con controles del contrato manifest e informes JSON
+
 # v1.0.0
 
 ###### 2026/09/01
@@ -183,3 +189,6 @@ app/src/main/res/raw-*/plugin_instruction.md
 - Proyecto oficial PaddleOCR: https://github.com/PaddlePaddle/PaddleOCR
 - Fuente de modelos ONNX PP-OCRv5: https://paddle-model-ecology.bj.bcebos.com/paddlex/official_inference_model/paddle3.0.0
 - Documentacion ONNX Runtime Android: https://onnxruntime.ai/docs/tutorials/mobile/deploy-android.html
+
+
+[16 KB page alignment and build verification](https://github.com/SuperMonster003/AutoJs6-Plugin-Paddle-OCR-PP-OCRv5/blob/master/docs/16kb.md)

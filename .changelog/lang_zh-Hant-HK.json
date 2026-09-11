@@ -5,6 +5,12 @@
   "changelog_label_improvement": "優化",
   "changelog_label_dependency": "依賴",
   "$data": {
+    "v1.0.1": {
+      "released_date": "2026/09/11",
+      "improvement": [
+        "建置階段校驗 64 位原生程式庫的 16 KB 頁面大小對齊, 檢查 manifest 契約並輸出 JSON 報告"
+      ]
+    },
     "v1.0.0": {
       "released_date": "2026/09/01",
       "feature": [
