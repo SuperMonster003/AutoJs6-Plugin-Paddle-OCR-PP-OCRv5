@@ -4,6 +4,14 @@
 
 ******
 
+# v1.0.2
+
+###### 2026/09/12
+
+* `수정` 16 KB 페이지 크기 기기에서 엔진 초기화 시 크래시(SIGSEGV)가 발생하던 문제 수정: 번들된 `libc++_shared.so`를 NDK r28.2 빌드로 교체하여 RELRO 세그먼트가 쓰기 가능한 데이터와 페이지를 공유하지 않도록 함 (arm64-v8a, armeabi-v7a)
+* `수정` 큰 인식 모델을 로드할 때 `OutOfMemoryError`로 인해 빈 결과가 조용히 반환되던 문제 수정: 모델 자산을 앱 전용 저장소에 한 번만 복사하고 Java 힙으로 읽는 대신 ONNX Runtime이 메모리 매핑하도록 변경
+* `개선` OpenCV 4.8.0 네이티브 라이브러리를 NDK r28c (Clang 19.0.1) 재빌드 버전으로 동기화 (donor: AutoJs6-Plugin-OpenCV); 4개 ABI의 `libopencv_java4.so`는 16 KB `PT_LOAD` 정렬을 유지하며 provenance 매니페스트를 포함
+
 # v1.0.1
 
 ###### 2026/09/11

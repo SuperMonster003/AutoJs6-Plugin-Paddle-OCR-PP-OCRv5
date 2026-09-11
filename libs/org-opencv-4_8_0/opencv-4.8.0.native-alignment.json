@@ -1,14 +1,30 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "date": "2026-09-11",
-  "beforeSha256": "de0ec857b3c7c3b60bebfdabea8eb5cce9f9f38dae3ec63be301a86041560209",
-  "afterSha256": "7930aaca619e6551d45c38e94d94bde846d303001f43a5a81a3f2cf3fe4f5e52",
-  "replacedEntry": "jni/x86_64/libopencv_java4.so",
-  "originalLibrarySha256": "7a4d7800819a22cccc6f48ddaaaf9f16756d2eeb1b83cc9d1f069344b3760297",
-  "librarySha256": "33fce612532940b72721c618e5b3a0d979b0138a6f32dac412c41ce09411ab22",
+  "beforeSha256": "7930aaca619e6551d45c38e94d94bde846d303001f43a5a81a3f2cf3fe4f5e52",
+  "afterSha256": "8c4b410ae07a709d30e75019cf636393ce8784cacbac95ef3f47accf80b5d25c",
+  "replacedEntries": {
+    "jni/arm64-v8a/libopencv_java4.so": {
+      "originalLibrarySha256": "92ada11a761e0935338222545d346c3271792c1720f00f60dcc50ff8481cac79",
+      "librarySha256": "988f653ee309848dae1a57b5bedb32d85c17c6f2ad9b8c7ec1a1bb4c3095d506"
+    },
+    "jni/armeabi-v7a/libopencv_java4.so": {
+      "originalLibrarySha256": "06d59b667aa3b2192ea678fe80864a2b6b2ba41d55021f8cacab7749c24a073d",
+      "librarySha256": "7e8f92311f34853a5998eadceaf07ebdc7483a878bbafe90d31276d045ae26ce"
+    },
+    "jni/x86/libopencv_java4.so": {
+      "originalLibrarySha256": "199a93bd9ffebf57d328b16962a0ae10b36827e3da33dcbdeac6943e52b58945",
+      "librarySha256": "86414781d9b32628535a6516c68b198eef325aa89080ddf4d9fd65bb89aff972"
+    },
+    "jni/x86_64/libopencv_java4.so": {
+      "originalLibrarySha256": "33fce612532940b72721c618e5b3a0d979b0138a6f32dac412c41ce09411ab22",
+      "librarySha256": "f9a66c2fec379e14757b11aa4220e67205c2e4d917b4dfffe7c6f99ba2623c6e"
+    }
+  },
   "minLoadAlign": 16384,
-  "donorArtifactSha256": "869e3ee9cf0cbb6e76e8a02dd94cd12e6cd2445e4b6dc662f46ed8f715c8875a",
+  "donorArtifactSha256": "f760265bbc0bae75f2f906088fee3447eb32d9bc2b4d7ad8fd246923ddc26dd6",
   "donorRepository": "AutoJs6-Plugin-OpenCV",
   "donorProvenance": "libs/opencv-native-4.8.0.provenance.json",
-  "note": "x86_64 is currently excluded by Paddle abiFilters; all other entries are unchanged."
+  "donorNdkRelease": "r28c",
+  "note": "All four JNI payloads come from the OpenCV plugin's NDK r28c rebuild; classes.jar and resources are unchanged."
 }

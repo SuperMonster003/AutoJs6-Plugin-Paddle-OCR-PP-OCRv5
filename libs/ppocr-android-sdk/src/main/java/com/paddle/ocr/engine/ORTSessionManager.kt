@@ -20,6 +20,7 @@ import ai.onnxruntime.OrtSession
 import android.content.Context
 import com.paddle.ocr.EngineConfig
 import com.paddle.ocr.model.OCRError
+import java.io.File
 import java.nio.FloatBuffer
 
 class ORTSessionManager(
@@ -43,15 +44,17 @@ class ORTSessionManager(
         }
         try {
             val ortEnv = env ?: throw OCRError.ModelLoadFailed("OCR", Exception("Environment not initialized"))
-            val detBytes = readModelAsset(detAssetPath)
-            val recBytes = readModelAsset(recAssetPath)
+            // Server-class models exceed 100 MB; keep them out of the Java heap by materializing the
+            // asset once and letting ONNX Runtime map the file instead of copying a byte array.
+            val detModel = materializeModelAsset(detAssetPath)
+            val recModel = materializeModelAsset(recAssetPath)
             try {
-                detSession = ortEnv.createSession(detBytes, opts)
+                detSession = ortEnv.createSession(detModel.absolutePath, opts)
             } catch (t: Throwable) {
                 throw OCRError.ModelLoadFailed("detection", t)
             }
             try {
-                recSession = ortEnv.createSession(recBytes, opts)
+                recSession = ortEnv.createSession(recModel.absolutePath, opts)
             } catch (t: Throwable) {
                 detSession?.close()
                 detSession = null
@@ -104,12 +107,36 @@ class ORTSessionManager(
         }
     }
 
-    private fun readModelAsset(assetPath: String): ByteArray {
+    /**
+     * Copies an APK model asset into app-private storage (once per installed APK version) and
+     * returns the file, so sessions can be created from a path that ONNX Runtime memory-maps.
+     * Reading a 90-110 MB asset into a byte array exhausts the default 256 MB Java heap.
+     */
+    private fun materializeModelAsset(assetPath: String): File {
         return try {
-            context.assets.open(assetPath).use { it.readBytes() }
+            val directory = File(context.noBackupFilesDir, "ort-models").apply { mkdirs() }
+            val target = File(directory, assetPath.replace('/', '_'))
+            val stamp = File(directory, target.name + ".stamp")
+            val installStamp = context.packageManager.getPackageInfo(context.packageName, 0).lastUpdateTime.toString()
+            if (!target.isFile || !stamp.isFile || stamp.readText() != installStamp) {
+                val temporary = File(directory, target.name + ".tmp")
+                context.assets.open(assetPath).use { input ->
+                    temporary.outputStream().use { output -> input.copyTo(output, COPY_BUFFER_BYTES) }
+                }
+                if (!temporary.renameTo(target)) {
+                    target.delete()
+                    check(temporary.renameTo(target)) { "Unable to publish $target" }
+                }
+                stamp.writeText(installStamp)
+            }
+            target
         } catch (t: Throwable) {
             throw OCRError.ModelNotFound(assetPath, t)
         }
+    }
+
+    private companion object {
+        const val COPY_BUFFER_BYTES = 1 shl 20
     }
 
     private fun runSession(

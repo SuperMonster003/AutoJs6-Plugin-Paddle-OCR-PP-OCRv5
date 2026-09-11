@@ -1,0 +1,21 @@
+{
+  "ndkVersion": "28.2.13676358",
+  "source": "https://developer.android.com/ndk/downloads/revision_history",
+  "policy": "64-bit PT_LOAD >= 16384; 32-bit NDK runtimes retain upstream alignment",
+  "libraries": [
+    {
+      "abi": "arm64-v8a",
+      "source": "toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so",
+      "sha256": "ab4e6c71b96b851de45a8a9bd86369e7dbc2130a44b3b4520564be94847910f2",
+      "minLoadAlign": 16384,
+      "replacedSha256": "cbf48c05fd429d280da9947a3e59623bc2918a4522e47335330b3fac8bc4c4e1"
+    },
+    {
+      "abi": "armeabi-v7a",
+      "source": "toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/arm-linux-androideabi/libc++_shared.so",
+      "sha256": "10ee48131d6742899619f7cfb3b8df150ad787d723c766a3fb80d4bb275711ff",
+      "minLoadAlign": 4096,
+      "replacedSha256": "2eea1a2b0a983dc53ff1caf994789c7c37046c9e22c50e503b8f001bc764a688"
+    }
+  ]
+}
