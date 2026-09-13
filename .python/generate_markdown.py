@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import argparse
 import json
 import re
 from pathlib import Path
@@ -169,7 +170,15 @@ def build_readme_values(code, languages, changelogs):
     return content
 
 
+CHECK_ONLY = False
+DRIFT = []
+
+
 def write_text(path: Path, text: str):
+    if CHECK_ONLY:
+        if not path.is_file() or path.read_text(encoding="utf-8").replace("\r\n", "\n") != text:
+            DRIFT.append(str(path.relative_to(ROOT)))
+        return
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding="utf-8", newline="\n")
     print(f"Generated {path.relative_to(ROOT)}")
@@ -201,11 +210,19 @@ def generate_changelogs(languages, changelogs):
 
 
 def main():
+    global CHECK_ONLY
+    parser = argparse.ArgumentParser(description="Generate localized documentation or verify it without writing")
+    parser.add_argument("--check", action="store_true", help="Check generated files without writing")
+    CHECK_ONLY = parser.parse_args().check
     if LANGUAGE_CODE_DEFAULT not in LANGUAGE_CODES:
         raise ValueError(f"Default language code {LANGUAGE_CODE_DEFAULT!r} is not in LANGUAGE_CODES")
     languages, changelogs = load_languages()
     generate_changelogs(languages, changelogs)
     generate_readmes(languages, changelogs)
+    if DRIFT:
+        raise SystemExit("Generated Markdown differs: " + ", ".join(DRIFT))
+    if CHECK_ONLY:
+        print("Generated Markdown is current")
 
 
 if __name__ == "__main__":

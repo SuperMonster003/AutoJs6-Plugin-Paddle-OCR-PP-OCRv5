@@ -54,6 +54,8 @@ AutoJs6 Paddle OCR PP-OCRv5 插件为 AutoJs6 提供基于 PaddleOCR ONNX Runtim
 - 支持截图/本地图像路径和原始图像数据输入, 返回识别文本/置信度/矩形边界和四点坐标.
 - 提供 `mobile`/`server`/`english`/`korean`/`latin`/`eslav`/`thai`/`greek`/`arabic`/`cyrillic`/`devanagari`/`telugu`/`tamil` 产品变体.
 - 插件信息/使用说明/README 与 CHANGELOG 均支持西班牙语/法语/俄语/阿拉伯语/日语/韩语/英语/简体中文/香港繁体/台湾繁体.
+- 图像最多包含 16777216 个像素, 原始图像缓冲区上限为 64 MiB
+- 编码图像最大为 64 MiB, 支持文件描述符和管道传输
 
 ******
 
@@ -113,6 +115,15 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ******
 
+# v1.0.3
+
+###### 2026/09/13
+
+* `修复` 插件中心显示的版本与 ABI 信息匹配实际安装的 APK
+* `修复` 编码图像最大为 64 MiB, 支持文件描述符和管道传输
+* `优化` 发布下载文件生成前校验 APK 版本, 签名与完整变体集合
+* `优化` 图像最多包含 16777216 个像素, 原始图像缓冲区上限为 64 MiB
+
 # v1.0.2
 
 ###### 2026/09/12
@@ -127,20 +138,6 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 ###### 2026/09/11
 
 * `优化` 构建阶段校验 64 位原生库的 16 KB 页大小对齐, 检查 manifest 契约并输出 JSON 报告
-
-# v1.0.0
-
-###### 2026/09/01
-
-* `新增` Paddle OCR PP-OCRv5 插件服务, 默认插件 ID 为 `paddle-ocr-pp-ocrv5`, 引擎为 `paddle-ocr`
-* `新增` 支持通过 AutoJs6 的 `ocr.paddle.recognizeText(...)` 和 `ocr.paddle(...)` 调用 OCR 能力
-* `新增` 基于 ONNX Runtime Android 和 OpenCV 实现 PP-OCRv5 文本检测/文本识别/CTC 解码和四点坐标结果
-* `新增` 支持截图/本地图像路径和原始图像数据输入, 并返回文本/置信度/矩形边界和耗时信息
-* `新增` 提供 `mobile`/`server`/`english`/`korean`/`latin`/`eslav`/`thai`/`greek`/`arabic`/`cyrillic`/`devanagari`/`telugu`/`tamil` 产品变体
-* `新增` 插件信息和使用说明的多语言资源: 西班牙语/法语/俄语/阿拉伯语/日语/韩语/英语/简体中文/香港繁体/台湾繁体
-* `新增` 基于 JSON 源文件和 `.python/generate_markdown.py` 生成多语言 README 与 CHANGELOG
-* `修复` 部分系统安装后无法通过插件中心激活的问题
-* `优化` 统一 README 版式与 Gradle 平台版本管理方式
 
 ##### 更多发行历史可参阅
 
@@ -169,7 +166,7 @@ Release 构建:
 .\gradlew.bat :app:assembleRelease
 ```
 
-构建参数来自 `version.properties`, 当前最低 SDK 为 24, 目标 SDK 为 36.
+构建参数来自 `version.properties`, 当前最低 SDK 为 26, 目标 SDK 为 36.
 
 ******
 

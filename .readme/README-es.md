@@ -54,6 +54,8 @@ El complemento AutoJs6 Paddle OCR PP-OCRv5 proporciona a AutoJs6 deteccion de te
 - Admite capturas de pantalla, rutas de imagen locales y datos de imagen sin procesar, y devuelve texto reconocido, confianza, limites rectangulares y coordenadas cuadrilateras.
 - Proporciona variantes de producto `mobile`, `server`, `english`, `korean`, `latin`, `eslav`, `thai`, `greek`, `arabic`, `cyrillic`, `devanagari`, `telugu` y `tamil`.
 - Los metadatos del complemento, las instrucciones de uso, el README y el CHANGELOG estan localizados en espanol, frances, ruso, arabe, japones, coreano, ingles, chino simplificado, chino tradicional de Hong Kong y chino tradicional de Taiwan.
+- Las imágenes admiten hasta 16777216 píxeles; los búferes de imagen sin procesar se limitan a 64 MiB
+- La imagen codificada admite hasta 64 MiB mediante descriptores de archivo y tuberías
 
 ******
 
@@ -113,6 +115,15 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ******
 
+# v1.0.3
+
+###### 2026/09/13
+
+* `Correccion` La versión y las ABI del centro de complementos coinciden con el APK instalado
+* `Correccion` La imagen codificada admite hasta 64 MiB mediante descriptores de archivo y tuberías
+* `Mejora` Validación de las versiones, firmas y variantes completas de los APK antes de crear los archivos de descarga
+* `Mejora` Las imágenes admiten hasta 16777216 píxeles; los búferes de imagen sin procesar se limitan a 64 MiB
+
 # v1.0.2
 
 ###### 2026/09/12
@@ -127,20 +138,6 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 ###### 2026/09/11
 
 * `Mejora` Verificación de compilación de la alineación de páginas de 16 KB en bibliotecas nativas de 64 bits, con controles del contrato manifest e informes JSON
-
-# v1.0.0
-
-###### 2026/09/01
-
-* `Funcion` Se agrego el servicio de complemento Paddle OCR PP-OCRv5 con el ID de complemento predeterminado `paddle-ocr-pp-ocrv5` y el motor `paddle-ocr`
-* `Funcion` Se agregaron llamadas OCR de AutoJs6 mediante `ocr.paddle.recognizeText(...)` y `ocr.paddle(...)`
-* `Funcion` Se implementaron deteccion de texto PP-OCRv5, reconocimiento de texto, decodificacion CTC y coordenadas cuadrilateras de resultado con ONNX Runtime Android y OpenCV
-* `Funcion` Se agrego entrada por captura de pantalla, ruta de imagen local y datos de imagen sin procesar, con retorno de texto, confianza, limites rectangulares y metadatos de tiempo
-* `Funcion` Se agregaron variantes de producto para `mobile`, `server`, `english`, `korean`, `latin`, `eslav`, `thai`, `greek`, `arabic`, `cyrillic`, `devanagari`, `telugu` y `tamil`
-* `Funcion` Se agregaron metadatos de complemento e instrucciones de uso localizados en espanol, frances, ruso, arabe, japones, coreano, ingles, chino simplificado, chino tradicional de Hong Kong y chino tradicional de Taiwan
-* `Funcion` Se agrego generacion de README y CHANGELOG desde fuentes JSON mediante `.python/generate_markdown.py`
-* `Correccion` El complemento no se podía activar desde el centro de complementos después de instalarlo en algunos sistemas
-* `Mejora` Unificar el diseño del README y la gestión de versiones de la plataforma Gradle
 
 ##### Para mas historial de versiones
 
@@ -169,7 +166,7 @@ Compilacion Release:
 .\gradlew.bat :app:assembleRelease
 ```
 
-Los parametros de compilacion provienen de `version.properties`; el SDK minimo actual es 24 y el SDK objetivo es 36.
+Los parametros de compilacion provienen de `version.properties`; el SDK minimo actual es 26 y el SDK objetivo es 36.
 
 ******
 

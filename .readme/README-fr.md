@@ -54,6 +54,8 @@ Le plugin AutoJs6 Paddle OCR PP-OCRv5 fournit a AutoJs6 la detection de texte et
 - Prend en charge les captures d'ecran, les chemins d'images locales et les donnees d'image brutes, avec retour du texte reconnu, de la confiance, des limites rectangulaires et des coordonnees quadrilaterales.
 - Fournit les variantes de produit `mobile`, `server`, `english`, `korean`, `latin`, `eslav`, `thai`, `greek`, `arabic`, `cyrillic`, `devanagari`, `telugu` et `tamil`.
 - Les metadonnees du plugin, les instructions d'utilisation, le README et le CHANGELOG sont localises en espagnol, francais, russe, arabe, japonais, coreen, anglais, chinois simplifie, chinois traditionnel de Hong Kong et chinois traditionnel de Taiwan.
+- Les images peuvent contenir jusqu'à 16777216 pixels; les tampons bruts sont limités à 64 MiB
+- Les images encodées sont limitées à 64 MiB avec prise en charge des fichiers et des tubes
 
 ******
 
@@ -113,6 +115,15 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ******
 
+# v1.0.3
+
+###### 2026/09/13
+
+* `Correctif` Les informations de version et d'ABI du centre des plugins correspondent à l'APK installé
+* `Correctif` Les images encodées sont limitées à 64 MiB avec prise en charge des fichiers et des tubes
+* `Amelioration` Validation des versions, signatures et variantes complètes des APK avant la création des fichiers à télécharger
+* `Amelioration` Les images peuvent contenir jusqu'à 16777216 pixels; les tampons bruts sont limités à 64 MiB
+
 # v1.0.2
 
 ###### 2026/09/12
@@ -127,20 +138,6 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 ###### 2026/09/11
 
 * `Amelioration` Vérification à la compilation de l'alignement des pages de 16 KB des bibliothèques natives 64 bits, avec contrôle du contrat manifest et rapports JSON
-
-# v1.0.0
-
-###### 2026/09/01
-
-* `Fonctionnalite` Ajout du service de plugin Paddle OCR PP-OCRv5 avec l'ID de plugin par defaut `paddle-ocr-pp-ocrv5` et le moteur `paddle-ocr`
-* `Fonctionnalite` Ajout des appels OCR AutoJs6 via `ocr.paddle.recognizeText(...)` et `ocr.paddle(...)`
-* `Fonctionnalite` Implementation de la detection de texte PP-OCRv5, de la reconnaissance de texte, du decodage CTC et des coordonnees quadrilaterales avec ONNX Runtime Android et OpenCV
-* `Fonctionnalite` Ajout de l'entree par capture d'ecran, chemin d'image local et donnees d'image brutes, avec retour du texte, de la confiance, des limites rectangulaires et des metadonnees de duree
-* `Fonctionnalite` Ajout des variantes de produit `mobile`, `server`, `english`, `korean`, `latin`, `eslav`, `thai`, `greek`, `arabic`, `cyrillic`, `devanagari`, `telugu` et `tamil`
-* `Fonctionnalite` Ajout des metadonnees de plugin et instructions d'utilisation localisees en espagnol, francais, russe, arabe, japonais, coreen, anglais, chinois simplifie, chinois traditionnel de Hong Kong et chinois traditionnel de Taiwan
-* `Fonctionnalite` Ajout de la generation README et CHANGELOG depuis des sources JSON via `.python/generate_markdown.py`
-* `Correctif` Le plugin ne pouvait pas être activé depuis le centre de plugins après son installation sur certains systèmes
-* `Amelioration` Uniformiser la mise en page du README et la gestion des versions de la plateforme Gradle
 
 ##### Pour plus d'historique des versions
 
@@ -169,7 +166,7 @@ Compilation Release:
 .\gradlew.bat :app:assembleRelease
 ```
 
-Les parametres de compilation viennent de `version.properties`; le SDK minimum actuel est 24 et le SDK cible est 36.
+Les parametres de compilation viennent de `version.properties`; le SDK minimum actuel est 26 et le SDK cible est 36.
 
 ******
 

@@ -12,7 +12,9 @@
     "Supports AutoJs6 calls such as `ocr.paddle.recognizeText(...)` and `ocr.paddle(...)`.",
     "Supports screenshot, local image path, and raw image data input, returning recognized text, confidence, rectangular bounds, and quadrilateral coordinates.",
     "Provides `mobile`, `server`, `english`, `korean`, `latin`, `eslav`, `thai`, `greek`, `arabic`, `cyrillic`, `devanagari`, `telugu`, and `tamil` product variants.",
-    "Plugin metadata, usage instructions, README, and CHANGELOG are localized for Spanish, French, Russian, Arabic, Japanese, Korean, English, Simplified Chinese, Hong Kong Traditional Chinese, and Taiwan Traditional Chinese."
+    "Plugin metadata, usage instructions, README, and CHANGELOG are localized for Spanish, French, Russian, Arabic, Japanese, Korean, English, Simplified Chinese, Hong Kong Traditional Chinese, and Taiwan Traditional Chinese.",
+    "Images may contain at most 16777216 pixels; raw image buffers are limited to 64 MiB",
+    "Encoded image input is limited to 64 MiB and supports file descriptors and pipes"
   ],
   "h3_profiles": "Model Profiles",
   "p_profiles_intro": "Current Gradle flavors and model profiles include",

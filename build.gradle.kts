@@ -9,7 +9,6 @@
 plugins {
     id("com.android.application") version System.getProperty("gradle.agp.version") apply false
     id("com.android.library") version System.getProperty("gradle.agp.version") apply false
-    id("org.jetbrains.kotlin.android") version System.getProperty("gradle.kotlin.version") apply false
 }
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.

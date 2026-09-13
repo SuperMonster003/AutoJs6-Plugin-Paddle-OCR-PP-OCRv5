@@ -39,22 +39,8 @@ class PpOcrV5PluginService : Service() {
             val runtimeConfig = PpOcrV5RuntimeConfig.from(this@PpOcrV5PluginService)
             val profile = PpOcrV5Profile.fromConfig(runtimeConfig)
             return PluginInfo().apply {
-                name = "Paddle OCR (PP-OCRv5 ${profile.value})"
-                description = when (profile) {
-                    PpOcrV5Profile.MOBILE -> "PP-OCRv5 mobile profile, recommended for most Android devices."
-                    PpOcrV5Profile.SERVER -> "PP-OCRv5 server profile for high-accuracy OCR on high-end devices."
-                    PpOcrV5Profile.ENGLISH -> "PP-OCRv5 English recognition profile with mobile text detection."
-                    PpOcrV5Profile.KOREAN -> "PP-OCRv5 Korean recognition profile with mobile text detection."
-                    PpOcrV5Profile.LATIN -> "PP-OCRv5 Latin recognition profile with mobile text detection."
-                    PpOcrV5Profile.ESLAV -> "PP-OCRv5 East Slavic recognition profile with mobile text detection."
-                    PpOcrV5Profile.THAI -> "PP-OCRv5 Thai recognition profile with mobile text detection."
-                    PpOcrV5Profile.GREEK -> "PP-OCRv5 Greek recognition profile with mobile text detection."
-                    PpOcrV5Profile.ARABIC -> "PP-OCRv5 Arabic recognition profile with mobile text detection."
-                    PpOcrV5Profile.CYRILLIC -> "PP-OCRv5 Cyrillic recognition profile with mobile text detection."
-                    PpOcrV5Profile.DEVANAGARI -> "PP-OCRv5 Devanagari recognition profile with mobile text detection."
-                    PpOcrV5Profile.TELUGU -> "PP-OCRv5 Telugu recognition profile with mobile text detection."
-                    PpOcrV5Profile.TAMIL -> "PP-OCRv5 Tamil recognition profile with mobile text detection."
-                }
+                name = org.autojs.plugin.runtime.InstalledPackageIdentity.stringResource(this@PpOcrV5PluginService, "app_name")
+                description = org.autojs.plugin.runtime.InstalledPackageIdentity.stringResource(this@PpOcrV5PluginService, "plugin_description")
                 author = runtimeConfig.pluginAuthor
                 id = runtimeConfig.pluginId
                 engine = runtimeConfig.pluginEngine
@@ -62,7 +48,7 @@ class PpOcrV5PluginService : Service() {
                 versionName = runtimeConfig.versionName
                 versionCode = runtimeConfig.versionCode
                 versionDate = runtimeConfig.versionDate
-                supportedAbis = SUPPORTED_ABIS
+                org.autojs.plugin.runtime.InstalledPackageIdentity.apply(this@PpOcrV5PluginService, this)
                 capabilities = Bundle().apply {
                     putInt(PluginCapabilityKeys.REQUIRES_HOST_VERSION, 3835)
                     putBoolean(PaddleOcrPluginCapabilityKeys.SUPPORTS_RAW_IMAGE, true)

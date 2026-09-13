@@ -4,6 +4,15 @@
 
 ******
 
+# v1.0.3
+
+###### 2026/09/13
+
+* `Fix` Plugin center version and ABI information matches the installed plugin APK
+* `Fix` Encoded image input is limited to 64 MiB and supports file descriptors and pipes
+* `Improvement` Validate release APK versions, signing and the complete variant set before creating download artifacts
+* `Improvement` Images may contain at most 16777216 pixels; raw image buffers are limited to 64 MiB
+
 # v1.0.2
 
 ###### 2026/09/12

@@ -5,6 +5,17 @@
   "changelog_label_improvement": "優化",
   "changelog_label_dependency": "依賴",
   "$data": {
+    "v1.0.3": {
+      "released_date": "2026/09/13",
+      "improvement": [
+        "發佈下載檔案產生前校驗 APK 版本, 簽署與完整變體集合",
+        "影像最多包含 16777216 個像素, 原始影像緩衝區上限為 64 MiB"
+      ],
+      "fix": [
+        "外掛中心顯示的版本與 ABI 資訊符合實際安裝的 APK",
+        "編碼圖像最大為 64 MiB, 支援檔案描述符和管道傳輸"
+      ]
+    },
     "v1.0.2": {
       "released_date": "2026/09/12",
       "fix": [

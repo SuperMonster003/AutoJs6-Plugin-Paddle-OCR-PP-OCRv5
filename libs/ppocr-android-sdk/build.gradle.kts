@@ -2,7 +2,6 @@ plugins {
     id("org.autojs.build.versions")
     id("org.autojs.build.jvm-convention")
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
 }
 
 android {
@@ -10,7 +9,7 @@ android {
     compileSdk = versions.sdkVersionCompile
 
     defaultConfig {
-        minSdk = 26
+        minSdk = versions.sdkVersionMin
         consumerProguardFiles("proguard-rules.pro")
     }
 

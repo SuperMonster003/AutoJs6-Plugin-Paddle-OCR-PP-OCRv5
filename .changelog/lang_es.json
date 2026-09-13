@@ -5,6 +5,17 @@
   "changelog_label_improvement": "Mejora",
   "changelog_label_dependency": "Dependencia",
   "$data": {
+    "v1.0.3": {
+      "released_date": "2026/09/13",
+      "improvement": [
+        "Validación de las versiones, firmas y variantes completas de los APK antes de crear los archivos de descarga",
+        "Las imágenes admiten hasta 16777216 píxeles; los búferes de imagen sin procesar se limitan a 64 MiB"
+      ],
+      "fix": [
+        "La versión y las ABI del centro de complementos coinciden con el APK instalado",
+        "La imagen codificada admite hasta 64 MiB mediante descriptores de archivo y tuberías"
+      ]
+    },
     "v1.0.2": {
       "released_date": "2026/09/12",
       "fix": [

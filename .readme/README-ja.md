@@ -54,6 +54,8 @@ AutoJs6 Paddle OCR PP-OCRv5 プラグインは, PaddleOCR ONNX Runtime を基盤
 - スクリーンショット, ローカル画像パス, raw 画像データ入力に対応し, 認識テキスト, 信頼度, 矩形境界, 四点座標を返します.
 - `mobile`/`server`/`english`/`korean`/`latin`/`eslav`/`thai`/`greek`/`arabic`/`cyrillic`/`devanagari`/`telugu`/`tamil` の製品バリアントを提供します.
 - プラグインメタデータ, 使用説明, README, CHANGELOG はスペイン語/フランス語/ロシア語/アラビア語/日本語/韓国語/英語/簡体字中国語/香港繁体字/台湾繁体字にローカライズされています.
+- 画像は最大 16777216 ピクセルまで, 生画像バッファーは 64 MiB まで対応
+- エンコード済み画像は 64 MiB まで対応し ファイル記述子とパイプを使用できます
 
 ******
 
@@ -113,6 +115,15 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ******
 
+# v1.0.3
+
+###### 2026/09/13
+
+* `修正` プラグインセンターのバージョンと ABI 情報がインストール済み APK と一致
+* `修正` エンコード済み画像は 64 MiB まで対応し ファイル記述子とパイプを使用できます
+* `改善` ダウンロード用ファイルの作成前に, リリース APK のバージョン, 署名, バリアントの完全性を検証
+* `改善` 画像は最大 16777216 ピクセルまで, 生画像バッファーは 64 MiB まで対応
+
 # v1.0.2
 
 ###### 2026/09/12
@@ -127,20 +138,6 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 ###### 2026/09/11
 
 * `改善` 64 ビットのネイティブライブラリの 16 KB ページアラインメントをビルド時に検証, manifest 契約の検査と JSON レポートに対応
-
-# v1.0.0
-
-###### 2026/09/01
-
-* `機能` 既定のプラグイン ID `paddle-ocr-pp-ocrv5` とエンジン `paddle-ocr` を持つ Paddle OCR PP-OCRv5 プラグインサービスを追加
-* `機能` `ocr.paddle.recognizeText(...)` と `ocr.paddle(...)` による AutoJs6 OCR 呼び出しを追加
-* `機能` ONNX Runtime Android と OpenCV で PP-OCRv5 テキスト検出, テキスト認識, CTC デコード, 四点座標結果を実装
-* `機能` スクリーンショット, ローカル画像パス, raw 画像データ入力を追加し, テキスト, 信頼度, 矩形境界, 時間メタデータを返すように変更
-* `機能` `mobile`/`server`/`english`/`korean`/`latin`/`eslav`/`thai`/`greek`/`arabic`/`cyrillic`/`devanagari`/`telugu`/`tamil` の製品バリアントを追加
-* `機能` スペイン語/フランス語/ロシア語/アラビア語/日本語/韓国語/英語/簡体字中国語/香港繁体字/台湾繁体字のプラグインメタデータと使用説明を追加
-* `機能` `.python/generate_markdown.py` による JSON ソースベースの README と CHANGELOG 生成を追加
-* `修正` 一部のシステムでインストール後にプラグインセンターからプラグインを有効化できない問題
-* `改善` README のレイアウトと Gradle プラットフォームのバージョン管理方式を統一
 
 ##### 詳細なリリース履歴
 
@@ -169,7 +166,7 @@ Release ビルド:
 .\gradlew.bat :app:assembleRelease
 ```
 
-ビルドパラメータは `version.properties` から取得されます. 現在の最小 SDK は 24, ターゲット SDK は 36 です.
+ビルドパラメータは `version.properties` から取得されます. 現在の最小 SDK は 26, ターゲット SDK は 36 です.
 
 ******
 

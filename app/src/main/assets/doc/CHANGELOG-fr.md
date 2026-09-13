@@ -4,6 +4,15 @@
 
 ******
 
+# v1.0.3
+
+###### 2026/09/13
+
+* `Correctif` Les informations de version et d'ABI du centre des plugins correspondent à l'APK installé
+* `Correctif` Les images encodées sont limitées à 64 MiB avec prise en charge des fichiers et des tubes
+* `Amelioration` Validation des versions, signatures et variantes complètes des APK avant la création des fichiers à télécharger
+* `Amelioration` Les images peuvent contenir jusqu'à 16777216 pixels; les tampons bruts sont limités à 64 MiB
+
 # v1.0.2
 
 ###### 2026/09/12
