@@ -29,7 +29,6 @@ import org.gradle.api.Project
  * versions.sdkVersionCompile
  * versions.sdkVersionMin
  * versions.sdkVersionTarget
- * versions.sdkVersionTargetInrt
  * ```
  */
 class VersionsPlugin : Plugin<Project> {
