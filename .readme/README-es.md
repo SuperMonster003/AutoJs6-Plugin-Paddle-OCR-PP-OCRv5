@@ -121,6 +121,7 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 * `Correccion` La versión y las ABI del centro de complementos coinciden con el APK instalado
 * `Correccion` La imagen codificada admite hasta 64 MiB mediante descriptores de archivo y tuberías
+* `Correccion` Las fechas de versión mantienen un formato uniforme en inglés
 * `Mejora` Validación de las versiones, firmas y variantes completas de los APK antes de crear los archivos de descarga
 * `Mejora` Las imágenes admiten hasta 16777216 píxeles; los búferes de imagen sin procesar se limitan a 64 MiB
 

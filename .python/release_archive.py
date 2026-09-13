@@ -5,6 +5,7 @@ variants, never inferred from old APKs. No signing secret is read or logged here
 """
 from __future__ import annotations
 
+from collections import Counter
 import argparse
 import hashlib
 import json
@@ -133,12 +134,13 @@ def verify_apk(apk, variant, output, manifest):
 def archive_release(manifest, verify_only=False):
     entries = collect(manifest)
     verified = []
+    version_abi_counts = Counter((output["versionName"], output["abi"]) for _, _, output in entries)
     for apk, variant, output in entries:
         native_abis = verify_apk(apk, variant, output, manifest)
         content = apk.read_bytes()
         crc = f"{zlib.crc32(content) & 0xffffffff:08X}"
         flavor = variant["name"][:-7].strip("-") if variant["name"] != "release" else ""
-        suffix = f"-{flavor.lower()}" if flavor else ""
+        suffix = f"-{flavor.lower()}" if flavor and version_abi_counts[(output["versionName"], output["abi"])] > 1 else ""
         filename = f"{manifest['projectName']}-v{output['versionName']}{suffix}-{output['abi']}-{crc}.apk"
         require(re.fullmatch(r"[A-Za-z0-9._+-]+\.apk", filename), "Unsafe release filename")
         verified.append((apk, {"file": filename, "variant": variant["name"], "applicationId": variant["applicationId"], "versionName": output["versionName"], "versionCode": output["versionCode"], "abi": output["abi"], "nativeAbis": native_abis, "crc32": crc, "sha256": hashlib.sha256(content).hexdigest()}))

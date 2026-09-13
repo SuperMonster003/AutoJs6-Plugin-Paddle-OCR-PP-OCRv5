@@ -13,7 +13,8 @@
       ],
       "fix": [
         "Les informations de version et d'ABI du centre des plugins correspondent à l'APK installé",
-        "Les images encodées sont limitées à 64 MiB avec prise en charge des fichiers et des tubes"
+        "Les images encodées sont limitées à 64 MiB avec prise en charge des fichiers et des tubes",
+        "Les dates de version utilisent un format anglais uniforme"
       ]
     },
     "v1.0.2": {

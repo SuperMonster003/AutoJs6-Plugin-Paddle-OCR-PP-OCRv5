@@ -44,7 +44,7 @@ python -m unittest discover -s .python -p test_release_archive.py
 .\gradlew.bat --no-daemon --max-workers=2 :app:appendDigestToReleasedFiles
 ```
 
-`Mobile` is the representative Debug build; release validation always checks all configured flavors. Run instrumentation on a compatible host/device for discovery, binding, getInfo, actual native/Binder happy paths, invalid input, rebind and cleanup. Verify every published ABI, including arm64 and x86_64 and a 16 KB device where supported. ColorOS activation and device tests require explicit evidence; compiling tests or checking ELF alignment does not establish a device pass. Record any missing device/flavor coverage in the release assessment.
+`Mobile` is the representative Debug build; release validation always checks all configured flavors. Run instrumentation on a compatible host/device for discovery, binding, getInfo, actual native/Binder happy paths, invalid input, rebind and cleanup. Verify every published ABI. Exercise arm64 and x86_64 when those ABIs are shipped, and a 16 KB device where supported. ColorOS activation and device tests require explicit evidence; compiling tests or checking ELF alignment does not establish a device pass. Record any missing device/flavor coverage in the release assessment.
 
 Image inputs are limited to 16777216 pixels; packed/padded raw buffers are limited to 64 MiB. Dimensions and stride are validated before allocation. Device CI covers x86_64 on 4 KB and 16 KB images where that ABI is available; ARM-only Paddle-Lite requires the explicitly configured ANDROID_ARM64_RUNNER. Missing runner coverage remains a release verification gap.
 

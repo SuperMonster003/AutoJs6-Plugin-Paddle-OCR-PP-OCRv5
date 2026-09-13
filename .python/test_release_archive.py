@@ -25,6 +25,33 @@ class ReleaseMatrixTest(unittest.TestCase):
     def save(self):
         (self.output / "output-metadata.json").write_text(json.dumps(self.metadata), encoding="utf-8")
 
+    def test_version_name_flavor_is_not_duplicated(self):
+        self.expected["name"] = self.metadata["variantName"] = "mobileEnRelease"
+        self.element["versionName"] = self.expected["outputs"][0]["versionName"] = "1.0.0-mobile-en"
+        self.save()
+        with patch("release_archive.verify_apk", return_value=[]):
+            archive_release(self.manifest)
+        receipt = json.loads((Path(self.manifest["destination"]) / "release-manifest.json").read_text())
+        name = receipt["artifacts"][0]["file"]
+        self.assertTrue(name.startswith("autojs6-plugin-example-v1.0.0-mobile-en-universal-"), name)
+
+    def test_variants_sharing_version_name_remain_distinguishable(self):
+        self.expected["name"] = self.metadata["variantName"] = "mobileRelease"
+        self.save()
+        other = self.output.parent / "serverRelease"
+        other.mkdir()
+        (other / "plugin.apk").write_bytes(self.apk.read_bytes())
+        data = {**self.metadata, "variantName": "serverRelease"}
+        (other / "output-metadata.json").write_text(json.dumps(data))
+        self.manifest["variants"].append({**self.expected, "name": "serverRelease"})
+        with patch("release_archive.verify_apk", return_value=[]):
+            archive_release(self.manifest)
+        receipt = json.loads((Path(self.manifest["destination"]) / "release-manifest.json").read_text())
+        names = {item["file"] for item in receipt["artifacts"]}
+        self.assertEqual(2, len(names))
+        for flavor in ["mobile", "server"]:
+            self.assertTrue(any(name.startswith("autojs6-plugin-example-v1.0.0-" + flavor + "-universal-") for name in names))
+
     def test_exact_matrix(self):
         self.assertEqual(1, len(collect(self.manifest)))
 
