@@ -13,7 +13,8 @@
       ],
       "fix": [
         "Plugin center version and ABI information matches the installed plugin APK",
-        "Encoded image input is limited to 64 MiB and supports file descriptors and pipes"
+        "Encoded image input is limited to 64 MiB and supports file descriptors and pipes",
+        "Version dates use a consistent English format"
       ]
     },
     "v1.0.2": {

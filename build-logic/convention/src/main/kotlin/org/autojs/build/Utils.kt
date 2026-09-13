@@ -43,7 +43,7 @@ object Utils {
 
     fun getDateString(format: String, zone: String): String {
         // e.g. May 23, 2011
-        return SimpleDateFormat(format, Locale.getDefault()).apply {
+        return SimpleDateFormat(format, Locale.ENGLISH).apply {
             timeZone = TimeZone.getTimeZone(zone)
         }.format(Date())
     }

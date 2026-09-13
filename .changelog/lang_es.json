@@ -13,7 +13,8 @@
       ],
       "fix": [
         "La versión y las ABI del centro de complementos coinciden con el APK instalado",
-        "La imagen codificada admite hasta 64 MiB mediante descriptores de archivo y tuberías"
+        "La imagen codificada admite hasta 64 MiB mediante descriptores de archivo y tuberías",
+        "Las fechas de versión mantienen un formato uniforme en inglés"
       ]
     },
     "v1.0.2": {
