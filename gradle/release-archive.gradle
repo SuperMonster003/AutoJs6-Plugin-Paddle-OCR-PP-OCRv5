@@ -1,0 +1,61 @@
+import groovy.json.JsonOutput
+import java.security.KeyStore
+import java.security.MessageDigest
+
+// Dynamic access keeps this applied script on the Android plugin's existing
+// classloader; it does not resolve another AGP or copy its version selection.
+def releaseAndroid = extensions.getByName('android')
+def releaseComponents = extensions.getByName('androidComponents')
+def releaseVariants = []
+releaseComponents.onVariants(releaseComponents.selector().withBuildType('release')) { variant ->
+    releaseVariants.add {
+        def outputs = variant.outputs.collect { output ->
+            def abi = output.filters.find { it.filterType.toString() == 'ABI' }?.identifier ?: 'universal'
+            [abi: abi, versionCode: output.versionCode.get(), versionName: output.versionName.get()]
+        }
+        def nativeAbis = releaseAndroid.defaultConfig.ndk.abiFilters.toList().sort()
+        if (nativeAbis.empty) {
+            nativeAbis = outputs.collect { it.abi }.findAll { it != 'universal' }.unique().sort()
+        }
+        [name: variant.name, applicationId: variant.applicationId.get(), nativeAbis: nativeAbis, outputs: outputs]
+    }
+}
+
+tasks.register('appendDigestToReleasedFiles') {
+    group = 'distribution'
+    description = 'Builds and validates the complete signed release APK matrix before CRC32 archiving'
+    dependsOn('assembleRelease')
+    doLast {
+        def signing = releaseAndroid.buildTypes.getByName('release').signingConfig
+        if (signing == null || signing.storeFile == null || !signing.storeFile.isFile() ||
+                !signing.storePassword || !signing.keyPassword || !signing.keyAlias) {
+            throw new GradleException('Release signing is missing or incomplete; configure ignored sign.properties and keystore')
+        }
+        def keyStore = KeyStore.getInstance(signing.storeFile, signing.storePassword.toCharArray())
+        if (keyStore.getKey(signing.keyAlias, signing.keyPassword.toCharArray()) == null) {
+            throw new GradleException('Release signing key is missing')
+        }
+        def certificate = keyStore.getCertificate(signing.keyAlias)
+        if (certificate == null) throw new GradleException('Release signing certificate is missing')
+        def signer = MessageDigest.getInstance('SHA-256').digest(certificate.encoded).encodeHex().toString()
+        def version = releaseAndroid.defaultConfig.versionName
+        def javaExecutable = new File(System.getProperty('java.home'), 'bin/java' + (System.getProperty('os.name').startsWith('Windows') ? '.exe' : ''))
+        def spec = [
+                projectRoot: rootProject.projectDir.absolutePath,
+                projectName: rootProject.name,
+                apkRoot: layout.buildDirectory.dir('outputs/apk').get().asFile.absolutePath,
+                destination: rootProject.file("releases/v${version}").absolutePath,
+                javaExecutable: javaExecutable.absolutePath,
+                buildToolsDirectory: releaseComponents.sdkComponents.sdkDirectory.get().dir("build-tools/${releaseAndroid.buildToolsVersion}").asFile.absolutePath,
+                signerSha256: signer,
+                variants: releaseVariants.collect { it() },
+        ]
+        def manifest = layout.buildDirectory.file('release-archive/expected.json').get().asFile
+        manifest.parentFile.mkdirs()
+        manifest.setText(JsonOutput.prettyPrint(JsonOutput.toJson(spec)), 'UTF-8')
+        def python = providers.gradleProperty('releasePython').getOrElse('python')
+        def process = new ProcessBuilder(python, rootProject.file('.python/release_archive.py').absolutePath, '--manifest', manifest.absolutePath)
+                .directory(rootProject.projectDir).inheritIO().start()
+        if (process.waitFor() != 0) throw new GradleException('Release APK validation failed; existing archives were preserved')
+    }
+}

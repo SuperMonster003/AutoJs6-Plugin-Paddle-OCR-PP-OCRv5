@@ -14,33 +14,40 @@ import java.nio.ByteOrder
 object ImageFdDecoder {
 
     fun decode(imageFd: ParcelFileDescriptor, extras: Bundle?): Bitmap {
-        val useRaw = extras?.getBoolean(PaddleOcrOptionExtraKeys.RAW_IMAGE, false) == true
-        if (useRaw) {
-            val width = extras.getInt(PaddleOcrOptionExtraKeys.RAW_WIDTH, -1)
-            val height = extras.getInt(PaddleOcrOptionExtraKeys.RAW_HEIGHT, -1)
-            val stride = extras.getInt(PaddleOcrOptionExtraKeys.RAW_STRIDE, width * 4)
-            val config = extras.getString(PaddleOcrOptionExtraKeys.RAW_CONFIG)
-            if (width > 0 && height > 0 && config == Bitmap.Config.ARGB_8888.name) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    val decoded = runCatching {
-                        tryDecodeSharedMemory(imageFd, width, height, stride)
-                    }.getOrNull()
-                    if (decoded != null) {
-                        closeQuietly(imageFd)
-                        return decoded
-                    }
-                }
-                return decodeRawStream(imageFd, width, height, stride)
-            }
-        }
-
         try {
-            imageFd.use { closeable ->
-                return BitmapFactory.decodeFileDescriptor(closeable.fileDescriptor)
-                    ?: error("decode image failed")
+            val useRaw = extras?.getBoolean(PaddleOcrOptionExtraKeys.RAW_IMAGE, false) == true
+            if (useRaw) {
+                val width = extras.getInt(PaddleOcrOptionExtraKeys.RAW_WIDTH, -1)
+                val height = extras.getInt(PaddleOcrOptionExtraKeys.RAW_HEIGHT, -1)
+                val stride = extras.getInt(PaddleOcrOptionExtraKeys.RAW_STRIDE, width * 4)
+                val config = extras.getString(PaddleOcrOptionExtraKeys.RAW_CONFIG)
+                org.autojs.plugin.runtime.ImageInputBounds.validateRaw(width, height, stride)
+                require(config == Bitmap.Config.ARGB_8888.name) { "Raw image format must be ARGB_8888" }
+                if (width > 0 && height > 0 && config == Bitmap.Config.ARGB_8888.name) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        val decoded = runCatching {
+                            tryDecodeSharedMemory(imageFd, width, height, stride)
+                        }.getOrNull()
+                        if (decoded != null) {
+                            closeQuietly(imageFd)
+                            return decoded
+                        }
+                    }
+                    return decodeRawStream(imageFd, width, height, stride)
+                }
             }
-        } catch (e: IOException) {
-            throw IllegalStateException("decode image failed", e)
+
+            try {
+                imageFd.use { closeable ->
+                    return org.autojs.plugin.runtime.ImageInputBounds.decodeEncoded(closeable.fileDescriptor)
+                        ?: error("decode image failed")
+                }
+            } catch (e: IOException) {
+                throw IllegalStateException("decode image failed", e)
+            }
+
+        } finally {
+            closeQuietly(imageFd)
         }
     }
 
@@ -85,6 +92,7 @@ object ImageFdDecoder {
         return bitmap
     }
 
+    @android.annotation.TargetApi(Build.VERSION_CODES.TIRAMISU)
     private fun tryDecodeSharedMemory(
         descriptor: ParcelFileDescriptor,
         width: Int,

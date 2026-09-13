@@ -12,7 +12,9 @@
     "Admite llamadas de AutoJs6 como `ocr.paddle.recognizeText(...)` y `ocr.paddle(...)`.",
     "Admite capturas de pantalla, rutas de imagen locales y datos de imagen sin procesar, y devuelve texto reconocido, confianza, limites rectangulares y coordenadas cuadrilateras.",
     "Proporciona variantes de producto `mobile`, `server`, `english`, `korean`, `latin`, `eslav`, `thai`, `greek`, `arabic`, `cyrillic`, `devanagari`, `telugu` y `tamil`.",
-    "Los metadatos del complemento, las instrucciones de uso, el README y el CHANGELOG estan localizados en espanol, frances, ruso, arabe, japones, coreano, ingles, chino simplificado, chino tradicional de Hong Kong y chino tradicional de Taiwan."
+    "Los metadatos del complemento, las instrucciones de uso, el README y el CHANGELOG estan localizados en espanol, frances, ruso, arabe, japones, coreano, ingles, chino simplificado, chino tradicional de Hong Kong y chino tradicional de Taiwan.",
+    "Las imágenes admiten hasta 16777216 píxeles; los búferes de imagen sin procesar se limitan a 64 MiB",
+    "La imagen codificada admite hasta 64 MiB mediante descriptores de archivo y tuberías"
   ],
   "h3_profiles": "Perfiles De Modelo",
   "p_profiles_intro": "Los flavors de Gradle y perfiles de modelo actuales incluyen",

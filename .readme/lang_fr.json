@@ -12,7 +12,9 @@
     "Prend en charge les appels AutoJs6 comme `ocr.paddle.recognizeText(...)` et `ocr.paddle(...)`.",
     "Prend en charge les captures d'ecran, les chemins d'images locales et les donnees d'image brutes, avec retour du texte reconnu, de la confiance, des limites rectangulaires et des coordonnees quadrilaterales.",
     "Fournit les variantes de produit `mobile`, `server`, `english`, `korean`, `latin`, `eslav`, `thai`, `greek`, `arabic`, `cyrillic`, `devanagari`, `telugu` et `tamil`.",
-    "Les metadonnees du plugin, les instructions d'utilisation, le README et le CHANGELOG sont localises en espagnol, francais, russe, arabe, japonais, coreen, anglais, chinois simplifie, chinois traditionnel de Hong Kong et chinois traditionnel de Taiwan."
+    "Les metadonnees du plugin, les instructions d'utilisation, le README et le CHANGELOG sont localises en espagnol, francais, russe, arabe, japonais, coreen, anglais, chinois simplifie, chinois traditionnel de Hong Kong et chinois traditionnel de Taiwan.",
+    "Les images peuvent contenir jusqu'à 16777216 pixels; les tampons bruts sont limités à 64 MiB",
+    "Les images encodées sont limitées à 64 MiB avec prise en charge des fichiers et des tubes"
   ],
   "h3_profiles": "Profils De Modele",
   "p_profiles_intro": "Les flavors Gradle et profils de modele actuels incluent",

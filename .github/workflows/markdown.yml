@@ -1,0 +1,21 @@
+name: Generated documentation
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  markdown:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+      - run: .python/check_markdown.bat
+      - run: python -m unittest discover -s .python -p test_release_archive.py
+
+      - name: Check source release contracts
+        run: python -m unittest discover -s .python -p test_repository_contract.py
+
+      - name: Check read-only generator behavior
+        run: python -m unittest discover -s .python -p test_markdown_check.py

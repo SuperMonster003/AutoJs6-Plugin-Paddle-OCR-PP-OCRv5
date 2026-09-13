@@ -12,7 +12,9 @@
     "支援 AutoJs6 中的 `ocr.paddle.recognizeText(...)` 和 `ocr.paddle(...)` 呼叫.",
     "支援螢幕截圖/本地影像路徑和原始影像資料輸入, 回傳辨識文字/信賴度/矩形邊界和四點座標.",
     "提供 `mobile`/`server`/`english`/`korean`/`latin`/`eslav`/`thai`/`greek`/`arabic`/`cyrillic`/`devanagari`/`telugu`/`tamil` 產品變體.",
-    "外掛資訊/使用說明/README 與 CHANGELOG 均支援西班牙文/法文/俄文/阿拉伯文/日文/韓文/英文/簡體中文/香港繁體/台灣繁體."
+    "外掛資訊/使用說明/README 與 CHANGELOG 均支援西班牙文/法文/俄文/阿拉伯文/日文/韓文/英文/簡體中文/香港繁體/台灣繁體.",
+    "影像最多包含 16777216 個像素, 原始影像緩衝區上限為 64 MiB",
+    "編碼影像最大為 64 MiB, 支援檔案描述元和管線傳輸"
   ],
   "h3_profiles": "模型設定",
   "p_profiles_intro": "目前 Gradle flavor 與模型設定包括",

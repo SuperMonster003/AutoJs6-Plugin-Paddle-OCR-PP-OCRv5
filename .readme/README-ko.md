@@ -54,6 +54,8 @@ AutoJs6 Paddle OCR PP-OCRv5 플러그인은 PaddleOCR ONNX Runtime 기반 텍스
 - 스크린샷, 로컬 이미지 경로, raw 이미지 데이터 입력을 지원하며 인식 텍스트, 신뢰도, 사각형 경계, 네 점 좌표를 반환합니다.
 - `mobile`/`server`/`english`/`korean`/`latin`/`eslav`/`thai`/`greek`/`arabic`/`cyrillic`/`devanagari`/`telugu`/`tamil` 제품 변형을 제공합니다.
 - 플러그인 메타데이터, 사용 설명, README, CHANGELOG는 스페인어/프랑스어/러시아어/아랍어/일본어/한국어/영어/간체 중국어/홍콩 번체/대만 번체로 현지화되어 있습니다.
+- 이미지는 최대 16777216픽셀, 원시 이미지 버퍼는 최대 64 MiB까지 지원
+- 인코딩된 이미지는 최대 64 MiB이며 파일 디스크립터와 파이프를 지원합니다
 
 ******
 
@@ -113,6 +115,15 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ******
 
+# v1.0.3
+
+###### 2026/09/13
+
+* `수정` 플러그인 센터의 버전과 ABI 정보가 설치된 APK와 일치
+* `수정` 인코딩된 이미지는 최대 64 MiB이며 파일 디스크립터와 파이프를 지원합니다
+* `개선` 다운로드 파일 생성 전에 릴리스 APK의 버전, 서명 및 전체 변형 구성을 검증
+* `개선` 이미지는 최대 16777216픽셀, 원시 이미지 버퍼는 최대 64 MiB까지 지원
+
 # v1.0.2
 
 ###### 2026/09/12
@@ -127,20 +138,6 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 ###### 2026/09/11
 
 * `개선` 64비트 네이티브 라이브러리의 16 KB 페이지 정렬을 빌드 시 검증, manifest 계약 검사 및 JSON 보고서 지원
-
-# v1.0.0
-
-###### 2026/09/01
-
-* `기능` 기본 플러그인 ID `paddle-ocr-pp-ocrv5` 및 엔진 `paddle-ocr`를 사용하는 Paddle OCR PP-OCRv5 플러그인 서비스를 추가
-* `기능` `ocr.paddle.recognizeText(...)` 및 `ocr.paddle(...)`를 통한 AutoJs6 OCR 호출 추가
-* `기능` ONNX Runtime Android 및 OpenCV로 PP-OCRv5 텍스트 검출, 텍스트 인식, CTC 디코딩, 사각형 결과 좌표 구현
-* `기능` 스크린샷, 로컬 이미지 경로, raw 이미지 데이터 입력을 추가하고 텍스트, 신뢰도, 사각형 경계, 시간 메타데이터 반환
-* `기능` `mobile`/`server`/`english`/`korean`/`latin`/`eslav`/`thai`/`greek`/`arabic`/`cyrillic`/`devanagari`/`telugu`/`tamil` 제품 변형 추가
-* `기능` 스페인어/프랑스어/러시아어/아랍어/일본어/한국어/영어/간체 중국어/홍콩 번체/대만 번체용 플러그인 메타데이터 및 사용 설명 추가
-* `기능` `.python/generate_markdown.py`를 통한 JSON 소스 기반 README 및 CHANGELOG 생성 추가
-* `수정` 일부 시스템에서 설치 후 플러그인 센터를 통해 플러그인을 활성화할 수 없는 문제
-* `개선` README 레이아웃과 Gradle 플랫폼 버전 관리 방식을 통일
 
 ##### 더 많은 릴리스 기록
 
@@ -169,7 +166,7 @@ Release 빌드:
 .\gradlew.bat :app:assembleRelease
 ```
 
-빌드 매개변수는 `version.properties`에서 가져옵니다. 현재 최소 SDK는 24이고 대상 SDK는 36입니다.
+빌드 매개변수는 `version.properties`에서 가져옵니다. 현재 최소 SDK는 26이고 대상 SDK는 36입니다.
 
 ******
 
