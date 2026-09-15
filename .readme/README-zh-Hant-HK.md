@@ -124,6 +124,7 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 * `修復` 版本日期保持統一的英文格式
 * `優化` 發佈下載檔案產生前校驗 APK 版本, 簽署與完整變體集合
 * `優化` 影像最多包含 16777216 個像素, 原始影像緩衝區上限為 64 MiB
+* `優化` 擴展原生 ABI 打包與插件中繼資料至 arm64-v8a, armeabi-v7a, x86 和 x86_64, 同步通用 APK 與各 ABI 獨立 APK
 
 # v1.0.2
 

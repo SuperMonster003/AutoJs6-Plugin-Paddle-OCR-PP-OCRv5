@@ -13,6 +13,7 @@
 * `Correccion` Las fechas de versión mantienen un formato uniforme en inglés
 * `Mejora` Validación de las versiones, firmas y variantes completas de los APK antes de crear los archivos de descarga
 * `Mejora` Las imágenes admiten hasta 16777216 píxeles; los búferes de imagen sin procesar se limitan a 64 MiB
+* `Mejora` Ampliar el empaquetado de ABI nativas y los metadatos del complemento a arm64-v8a, armeabi-v7a, x86 y x86_64, con APK universales e individuales coherentes
 
 # v1.0.2
 
