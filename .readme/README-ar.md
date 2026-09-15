@@ -115,6 +115,12 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ******
 
+# v1.0.4
+
+###### 2026/09/15
+
+* `تحسين` رفع compileSdk و targetSdk إلى 37 (Android 17)؛ لا يعتمد سلوك المكون الإضافي على الهدف الجديد
+
 # v1.0.3
 
 ###### 2026/09/13
@@ -134,12 +140,6 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 * `إصلاح` إصلاح إرجاع نتائج فارغة بصمت لنماذج التعرف الكبيرة بعد `OutOfMemoryError`: تُنسخ أصول النموذج مرة واحدة إلى التخزين الخاص بالتطبيق ويقوم ONNX Runtime بتعيينها في الذاكرة بدلاً من قراءتها في كومة Java
 * `إصلاح` تعذر البناء مع بعض توليفات Gradle/AGP بسبب عدم تجميع مصادر Kotlin أو تكرار تعريف `WakeActivity`
 * `تحسين` مزامنة مكتبة OpenCV 4.8.0 الأصلية مع إعادة بناء NDK r28c (Clang 19.0.1) (المصدر: AutoJs6-Plugin-OpenCV); تحافظ `libopencv_java4.so` لجميع ABI الأربعة على محاذاة `PT_LOAD` بحجم 16 كيلوبايت وتأتي مع بيان provenance
-
-# v1.0.1
-
-###### 2026/09/11
-
-* `تحسين` التحقق أثناء البناء من محاذاة صفحات 16 KB للمكتبات الأصلية ذات 64 بت, مع فحص عقد manifest وتقارير JSON
 
 ##### لمزيد من سجل الإصدارات
 
@@ -168,7 +168,7 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 .\gradlew.bat :app:assembleRelease
 ```
 
-تأتي معاملات البناء من `version.properties`; الحد الأدنى الحالي من SDK هو 26 و SDK الهدف هو 36.
+تأتي معاملات البناء من `version.properties`; الحد الأدنى الحالي من SDK هو 26 و SDK الهدف هو 37.
 
 ******
 

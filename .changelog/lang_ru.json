@@ -5,6 +5,12 @@
   "changelog_label_improvement": "Улучшение",
   "changelog_label_dependency": "Зависимость",
   "$data": {
+    "v1.0.4": {
+      "released_date": "2026/09/15",
+      "improvement": [
+        "Подняты compileSdk и targetSdk до 37 (Android 17); поведение плагина не зависит от нового целевого уровня"
+      ]
+    },
     "v1.0.3": {
       "released_date": "2026/09/13",
       "improvement": [

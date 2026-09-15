@@ -5,6 +5,12 @@
   "changelog_label_improvement": "تحسين",
   "changelog_label_dependency": "تبعية",
   "$data": {
+    "v1.0.4": {
+      "released_date": "2026/09/15",
+      "improvement": [
+        "رفع compileSdk و targetSdk إلى 37 (Android 17)؛ لا يعتمد سلوك المكون الإضافي على الهدف الجديد"
+      ]
+    },
     "v1.0.3": {
       "released_date": "2026/09/13",
       "improvement": [

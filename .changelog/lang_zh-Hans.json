@@ -5,6 +5,12 @@
   "changelog_label_improvement": "优化",
   "changelog_label_dependency": "依赖",
   "$data": {
+    "v1.0.4": {
+      "released_date": "2026/09/15",
+      "improvement": [
+        "将 compileSdk 与 targetSdk 提升到 37 (Android 17), 插件行为不受新目标版本影响"
+      ]
+    },
     "v1.0.3": {
       "released_date": "2026/09/13",
       "improvement": [

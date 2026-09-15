@@ -115,6 +115,12 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ******
 
+# v1.0.4
+
+###### 2026/09/15
+
+* `Amelioration` compileSdk et targetSdk passent à 37 (Android 17) ; le comportement du plugin ne dépend pas de la nouvelle cible
+
 # v1.0.3
 
 ###### 2026/09/13
@@ -134,12 +140,6 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 * `Correctif` Correction des modèles de reconnaissance volumineux renvoyant silencieusement un résultat vide après un `OutOfMemoryError` : les modèles sont copiés une seule fois dans le stockage privé de l'application et mappés en mémoire par ONNX Runtime au lieu d'être lus dans le tas Java
 * `Correctif` Échecs de compilation avec certaines combinaisons Gradle/AGP dus aux sources Kotlin non compilées ou aux définitions en double de `WakeActivity`
 * `Amelioration` Bibliothèque native OpenCV 4.8.0 synchronisée avec la recompilation NDK r28c (Clang 19.0.1) (donneur : AutoJs6-Plugin-OpenCV) ; `libopencv_java4.so` des 4 ABI conserve l'alignement `PT_LOAD` de 16 Ko et embarque un manifeste de provenance
-
-# v1.0.1
-
-###### 2026/09/11
-
-* `Amelioration` Vérification à la compilation de l'alignement des pages de 16 KB des bibliothèques natives 64 bits, avec contrôle du contrat manifest et rapports JSON
 
 ##### Pour plus d'historique des versions
 
@@ -168,7 +168,7 @@ Compilation Release:
 .\gradlew.bat :app:assembleRelease
 ```
 
-Les parametres de compilation viennent de `version.properties`; le SDK minimum actuel est 26 et le SDK cible est 36.
+Les parametres de compilation viennent de `version.properties`; le SDK minimum actuel est 26 et le SDK cible est 37.
 
 ******
 
