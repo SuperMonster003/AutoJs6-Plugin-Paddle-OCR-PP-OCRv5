@@ -21,10 +21,6 @@ android {
     buildFeatures {
         buildConfig = false
     }
-
-    sourceSets.named("main") {
-        kotlin.directories += "src/main/java"
-    }
 }
 
 dependencies {
