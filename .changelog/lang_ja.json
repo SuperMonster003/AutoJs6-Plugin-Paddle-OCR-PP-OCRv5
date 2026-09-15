@@ -5,6 +5,12 @@
   "changelog_label_improvement": "改善",
   "changelog_label_dependency": "依存関係",
   "$data": {
+    "v1.0.4": {
+      "released_date": "2026/09/15",
+      "improvement": [
+        "compileSdk と targetSdk を 37 (Android 17) に引き上げ, プラグインの動作は新しいターゲットの影響を受けない"
+      ]
+    },
     "v1.0.3": {
       "released_date": "2026/09/13",
       "improvement": [
