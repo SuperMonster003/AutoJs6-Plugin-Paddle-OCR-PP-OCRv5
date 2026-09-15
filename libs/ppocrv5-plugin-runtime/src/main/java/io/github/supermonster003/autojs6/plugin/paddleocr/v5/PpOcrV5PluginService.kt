@@ -122,7 +122,7 @@ class PpOcrV5PluginService : Service() {
     }
 
     private companion object {
-        val SUPPORTED_ABIS = arrayOf("arm64-v8a", "armeabi-v7a")
+        val SUPPORTED_ABIS = arrayOf("arm64-v8a", "armeabi-v7a", "x86", "x86_64")
         const val CAPABILITY_SUPPORTS_PP_OCR_V5 = "supportsPpOcrV5"
         const val CAPABILITY_MODEL_PROFILE = "modelProfile"
         const val CAPABILITY_RECOMMENDED_FOR_MOBILE_DEFAULT = "recommendedForMobileDefault"

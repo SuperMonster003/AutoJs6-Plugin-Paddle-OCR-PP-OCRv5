@@ -124,6 +124,7 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 * `Correctif` Les dates de version utilisent un format anglais uniforme
 * `Amelioration` Validation des versions, signatures et variantes complètes des APK avant la création des fichiers à télécharger
 * `Amelioration` Les images peuvent contenir jusqu'à 16777216 pixels; les tampons bruts sont limités à 64 MiB
+* `Amelioration` Étendre les ABI natives et les métadonnées du plugin à arm64-v8a, armeabi-v7a, x86 et x86_64, avec des APK universels et par ABI cohérents
 
 # v1.0.2
 

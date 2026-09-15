@@ -16,6 +16,18 @@
       "sha256": "10ee48131d6742899619f7cfb3b8df150ad787d723c766a3fb80d4bb275711ff",
       "minLoadAlign": 4096,
       "replacedSha256": "2eea1a2b0a983dc53ff1caf994789c7c37046c9e22c50e503b8f001bc764a688"
+    },
+    {
+      "abi": "x86",
+      "source": "toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/i686-linux-android/libc++_shared.so",
+      "sha256": "0d3760e528242389388893f46de419ebf80870d08fa73732dc2b1e9b69a793c1",
+      "minLoadAlign": 4096
+    },
+    {
+      "abi": "x86_64",
+      "source": "toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/libc++_shared.so",
+      "sha256": "e4cd73c8a3607269f3be58d15c21f78bff112e27f9398d6261e5f965668f8746",
+      "minLoadAlign": 16384
     }
   ]
 }

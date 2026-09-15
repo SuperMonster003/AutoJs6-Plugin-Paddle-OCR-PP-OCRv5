@@ -9,7 +9,8 @@
       "released_date": "2026/09/13",
       "improvement": [
         "Validate release APK versions, signing and the complete variant set before creating download artifacts",
-        "Images may contain at most 16777216 pixels; raw image buffers are limited to 64 MiB"
+        "Images may contain at most 16777216 pixels; raw image buffers are limited to 64 MiB",
+        "Extend native ABI packaging and plugin metadata to arm64-v8a, armeabi-v7a, x86 and x86_64, with matching universal and per-ABI APKs"
       ],
       "fix": [
         "Plugin center version and ABI information matches the installed plugin APK",

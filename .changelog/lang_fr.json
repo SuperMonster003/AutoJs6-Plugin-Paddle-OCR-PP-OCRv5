@@ -9,7 +9,8 @@
       "released_date": "2026/09/13",
       "improvement": [
         "Validation des versions, signatures et variantes complètes des APK avant la création des fichiers à télécharger",
-        "Les images peuvent contenir jusqu'à 16777216 pixels; les tampons bruts sont limités à 64 MiB"
+        "Les images peuvent contenir jusqu'à 16777216 pixels; les tampons bruts sont limités à 64 MiB",
+        "Étendre les ABI natives et les métadonnées du plugin à arm64-v8a, armeabi-v7a, x86 et x86_64, avec des APK universels et par ABI cohérents"
       ],
       "fix": [
         "Les informations de version et d'ABI du centre des plugins correspondent à l'APK installé",
