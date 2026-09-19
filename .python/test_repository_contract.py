@@ -59,7 +59,7 @@ class RepositoryContractTest(unittest.TestCase):
     def test_icon_and_public_build_platform(self):
         self.assertTrue((ROOT/"app/src/main/res/mipmap/ic_launcher.png").read_bytes().startswith(b"\x89PNG\r\n\x1a\n"))
         settings = (ROOT/"settings.gradle.kts").read_text(encoding="utf-8")
-        self.assertIn('version "1.8.1"', settings)
+        self.assertIn('version "1.8.3"', settings)
         self.assertNotIn("autojs.buildPlugins.includeBuild", settings)
         name = re.search(r'rootProject.name\s*=\s*"([^"]+)"', settings).group(1)
         self.assertEqual(name.lower(), name)

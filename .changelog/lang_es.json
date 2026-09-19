@@ -6,9 +6,12 @@
   "changelog_label_dependency": "Dependencia",
   "$data": {
     "v1.0.4": {
-      "released_date": "2026/09/15",
+      "released_date": "2026/09/19",
       "improvement": [
         "compileSdk y targetSdk suben a 37 (Android 17); el comportamiento del plugin no depende del nuevo objetivo"
+      ],
+      "fix": [
+        "Advertencias de lectura de SDK XML v4 con AGP 9.1 y comprobaciones de alineación nativa de APK activadas por error al ensamblar pruebas unitarias JVM, mediante los plugins de compilación compartidos 1.8.3"
       ]
     },
     "v1.0.3": {

@@ -6,9 +6,12 @@
   "changelog_label_dependency": "依賴",
   "$data": {
     "v1.0.4": {
-      "released_date": "2026/09/15",
+      "released_date": "2026/09/19",
       "improvement": [
         "將 compileSdk 與 targetSdk 提升到 37 (Android 17), 插件行為不受新目標版本影響"
+      ],
+      "fix": [
+        "AGP 9.1 構建時的 SDK XML v4 解析警告及 JVM 單元測試組裝任務誤觸發 APK 原生程式庫對齊檢查的問題 (共用構建外掛 1.8.3)"
       ]
     },
     "v1.0.3": {

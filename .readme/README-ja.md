@@ -117,8 +117,9 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 # v1.0.4
 
-###### 2026/09/15
+###### 2026/09/19
 
+* `修正` 共有ビルドプラグイン 1.8.3 により, AGP 9.1 での SDK XML v4 解析警告と, JVM 単体テストの組み立て時に APK ネイティブライブラリのアラインメント検証が誤って実行される問題
 * `改善` compileSdk と targetSdk を 37 (Android 17) に引き上げ, プラグインの動作は新しいターゲットの影響を受けない
 
 # v1.0.3

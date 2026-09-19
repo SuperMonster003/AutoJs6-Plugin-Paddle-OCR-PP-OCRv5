@@ -6,9 +6,12 @@
   "changelog_label_dependency": "依存関係",
   "$data": {
     "v1.0.4": {
-      "released_date": "2026/09/15",
+      "released_date": "2026/09/19",
       "improvement": [
         "compileSdk と targetSdk を 37 (Android 17) に引き上げ, プラグインの動作は新しいターゲットの影響を受けない"
+      ],
+      "fix": [
+        "共有ビルドプラグイン 1.8.3 により, AGP 9.1 での SDK XML v4 解析警告と, JVM 単体テストの組み立て時に APK ネイティブライブラリのアラインメント検証が誤って実行される問題"
       ]
     },
     "v1.0.3": {
