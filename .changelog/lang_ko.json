@@ -6,9 +6,12 @@
   "changelog_label_dependency": "의존성",
   "$data": {
     "v1.0.4": {
-      "released_date": "2026/09/15",
+      "released_date": "2026/09/19",
       "improvement": [
         "compileSdk 와 targetSdk 를 37 (Android 17) 로 올리며, 플러그인 동작은 새 대상 버전의 영향을 받지 않음"
+      ],
+      "fix": [
+        "공유 빌드 플러그인 1.8.3을 통해 AGP 9.1의 SDK XML v4 파싱 경고 및 JVM 단위 테스트 조립 작업에서 APK 네이티브 라이브러리 정렬 검사가 잘못 실행되는 문제 해결"
       ]
     },
     "v1.0.3": {

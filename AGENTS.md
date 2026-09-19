@@ -11,7 +11,7 @@ These rules apply to this existing plugin. They implement the workspace's AutoJs
 
 ## Build and release
 
-- Root project name is `autojs6-plugin-paddle-ocr-pp-ocrv5`. Use the publicly published platform-versions and native-alignment plugins at 1.8.1; no local plugin override, mavenLocal, consumer gradle/data, or sibling JAR/AAR dependency.
+- Root project name is `autojs6-plugin-paddle-ocr-pp-ocrv5`. Use the publicly published platform-versions and native-alignment plugins at 1.8.3; no local plugin override, mavenLocal, consumer gradle/data, or sibling JAR/AAR dependency.
 - Apply platform-versions in root settings before build-logic. Root Android/Kotlin plugin versions consume the platform's system properties. Use AGP's built-in Kotlin support and UTF-8 compilation.
 - SDK, package version and JDK inputs come from version.properties and build-logic. Builds must not rewrite tracked version inputs.
 - Python 3.10+ and Android SDK build tools are required for release validation. `:app:appendDigestToReleasedFiles` depends on `assembleRelease` and validates the configured release variant/ABI matrix, actual APK identities, release certificate, 64-bit ELF/ZIP alignment and CRC32 before archiving to `releases/v<VERSION_NAME>/`.
