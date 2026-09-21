@@ -8,34 +8,34 @@
 
 ###### 2026/09/19
 
-* `修复` AGP 9.1 构建时的 SDK XML v4 解析警告及 JVM 单元测试组装任务误触发 APK 原生库对齐检查的问题 (共享构建插件 1.8.3)
-* `优化` 将 compileSdk 与 targetSdk 提升到 37 (Android 17), 插件行为不受新目标版本影响
+* `修复` AGP 9.1 构建时的 SDK XML v4 解析警告, 以及 JVM 单元测试误触发 APK 原生库对齐检查的问题 (共享构建插件 1.8.3)
+* `优化` compileSdk/targetSdk 升级至 37 (Android 17)
 
 # v1.0.3
 
 ###### 2026/09/13
 
-* `修复` 插件中心显示的版本与 ABI 信息匹配实际安装的 APK
-* `修复` 编码图像最大为 64 MiB, 支持文件描述符和管道传输
-* `修复` 版本日期保持统一的英文格式
-* `优化` 发布下载文件生成前校验 APK 版本, 签名与完整变体集合
+* `修复` 插件中心显示的版本及 ABI 信息与实际安装包不一致的问题
+* `修复` 编码图像的文件描述符及管道输入兼容性问题 (文件大小上限为 64 MiB)
+* `修复` 版本日期受构建环境语言影响, 未统一使用英文格式的问题
+* `优化` 发布前校验 APK 版本, 签名及变体完整性
 * `优化` 图像最多包含 16777216 个像素, 原始图像缓冲区上限为 64 MiB
-* `优化` 扩展原生 ABI 打包与插件元数据至 arm64-v8a, armeabi-v7a, x86 和 x86_64, 同步通用 APK 与各 ABI 独立 APK
+* `优化` 原生库支持 arm64-v8a/armeabi-v7a/x86/x86_64, 并提供通用及各 ABI 独立安装包
 
 # v1.0.2
 
 ###### 2026/09/12
 
-* `修复` 修复 16 KB 页大小设备上引擎初始化即崩溃 (SIGSEGV) 的问题: 随包的 `libc++_shared.so` 更新为 NDK r28.2 构建版本, 其 RELRO 段末尾不再与可写数据共用内存页 (arm64-v8a, armeabi-v7a)
-* `修复` 修复加载体积较大的识别模型时因 `OutOfMemoryError` 而静默返回空结果的问题: 模型资源现在只会复制到应用私有目录一次, 并由 ONNX Runtime 以内存映射方式创建会话, 不再整体读入 Java 堆
-* `修复` 部分 Gradle/AGP 组合下 Kotlin 源码未参与编译, 以及重复定义 `WakeActivity` 导致的构建失败
-* `优化` 同步 OpenCV 4.8.0 原生库至 NDK r28c (Clang 19.0.1) 重编版本 (donor: AutoJs6-Plugin-OpenCV), 4 个 ABI 的 `libopencv_java4.so` 保持 16 KB `PT_LOAD` 对齐并附带 provenance 清单
+* `修复` 16 KB 内存页设备初始化引擎时出现 SIGSEGV 崩溃的问题, libc++_shared.so 改用 NDK r28.2 构建版本 (arm64-v8a/armeabi-v7a)
+* `修复` 加载较大识别模型时因 OutOfMemoryError 而返回空结果的问题, 模型改为缓存至应用私有目录并通过内存映射加载
+* `修复` 部分 Gradle/AGP 组合下 Kotlin 源码未参与编译, 以及 WakeActivity 重复定义导致构建失败的问题
+* `优化` OpenCV 4.8.0 原生库改用 NDK r28c (Clang 19.0.1) 构建, 4 个 ABI 均支持 16 KB 内存页并附带构建来源清单 (来源: AutoJs6-Plugin-OpenCV)
 
 # v1.0.1
 
 ###### 2026/09/11
 
-* `优化` 构建阶段校验 64 位原生库的 16 KB 页大小对齐, 检查 manifest 契约并输出 JSON 报告
+* `优化` 构建阶段校验 64 位原生库的 16 KB 内存页对齐及 Manifest 配置, 并输出校验报告
 
 # v1.0.0
 
@@ -45,8 +45,8 @@
 * `新增` 支持通过 AutoJs6 的 `ocr.paddle.recognizeText(...)` 和 `ocr.paddle(...)` 调用 OCR 能力
 * `新增` 基于 ONNX Runtime Android 和 OpenCV 实现 PP-OCRv5 文本检测/文本识别/CTC 解码和四点坐标结果
 * `新增` 支持截图/本地图像路径和原始图像数据输入, 并返回文本/置信度/矩形边界和耗时信息
-* `新增` 提供 `mobile`/`server`/`english`/`korean`/`latin`/`eslav`/`thai`/`greek`/`arabic`/`cyrillic`/`devanagari`/`telugu`/`tamil` 产品变体
-* `新增` 插件信息和使用说明的多语言资源: 西班牙语/法语/俄语/阿拉伯语/日语/韩语/英语/简体中文/香港繁体/台湾繁体
+* `新增` 提供 mobile/server/english/korean/latin/eslav/thai/greek/arabic/cyrillic/devanagari/telugu/tamil 产品变体
+* `新增` 插件信息及使用说明支持 10 种语言 (西班牙语/法语/俄语/阿拉伯语/日语/韩语/英语/简体中文/香港繁体/台湾繁体)
 * `新增` 基于 JSON 源文件和 `.python/generate_markdown.py` 生成多语言 README 与 CHANGELOG
 * `修复` 部分系统安装后无法通过插件中心激活的问题
 * `优化` 统一 README 版式与 Gradle 平台版本管理方式
