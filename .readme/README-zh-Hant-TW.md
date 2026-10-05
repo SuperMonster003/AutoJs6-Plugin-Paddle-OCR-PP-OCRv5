@@ -117,10 +117,11 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 # v1.0.4
 
-###### 2026/09/19
+###### 2026/10/05
 
 * `修復` AGP 9.1 建置時的 SDK XML v4 解析警告及 JVM 單元測試組裝工作誤觸發 APK 原生程式庫對齊檢查的問題 (共用建置外掛 1.8.3)
 * `優化` 將 compileSdk 與 targetSdk 提升到 37 (Android 17), 外掛程式行為不受新目標版本影響
+* `優化` Android 系統應用程式資訊圖示與圖示工作台共用圖稿及明暗底色, 保留外掛程式中心透明圖稿與現有啟動器選項
 
 # v1.0.3
 

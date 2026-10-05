@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "generatorVersion": "1.3.0",
+  "profile": "catalog",
+  "repository": "AutoJs6-Plugin-Paddle-OCR-PP-OCRv5",
+  "packages": [
+    "io.github.supermonster003.autojs6.plugin.paddleocr.v5",
+    "io.github.supermonster003.autojs6.plugin.paddleocr.v5.server",
+    "io.github.supermonster003.autojs6.plugin.paddleocr.v5.english",
+    "io.github.supermonster003.autojs6.plugin.paddleocr.v5.korean",
+    "io.github.supermonster003.autojs6.plugin.paddleocr.v5.latin",
+    "io.github.supermonster003.autojs6.plugin.paddleocr.v5.eslav",
+    "io.github.supermonster003.autojs6.plugin.paddleocr.v5.thai",
+    "io.github.supermonster003.autojs6.plugin.paddleocr.v5.greek",
+    "io.github.supermonster003.autojs6.plugin.paddleocr.v5.arabic",
+    "io.github.supermonster003.autojs6.plugin.paddleocr.v5.cyrillic",
+    "io.github.supermonster003.autojs6.plugin.paddleocr.v5.devanagari",
+    "io.github.supermonster003.autojs6.plugin.paddleocr.v5.telugu",
+    "io.github.supermonster003.autojs6.plugin.paddleocr.v5.tamil"
+  ],
+  "launcher": false,
+  "params": {
+    "sources": {
+      "day": "9c0ffa05a64c16f6854af0a8223b76cbd0b18db592e7f71c401dbcc5572d9146",
+      "night": "9c0ffa05a64c16f6854af0a8223b76cbd0b18db592e7f71c401dbcc5572d9146",
+      "alphaMode": "alpha"
+    },
+    "geometry": {
+      "mode": "preserve",
+      "scale": 1.0,
+      "offsetX": 0.0,
+      "offsetY": 0.0
+    },
+    "day": {
+      "mode": "original",
+      "foreground": "#272727",
+      "brightness": 1.0,
+      "contrast": 1.0,
+      "gamma": 1.0,
+      "threshold": 128,
+      "invert": false
+    },
+    "night": {
+      "mode": "original",
+      "foreground": "#d8d8d8",
+      "brightness": 1.0,
+      "contrast": 1.0,
+      "gamma": 1.0,
+      "threshold": 128,
+      "invert": false
+    },
+    "backgrounds": {
+      "day": "transparent",
+      "night": "transparent"
+    }
+  },
+  "baseline": {
+    "params": {
+      "sources": {
+        "day": "9c0ffa05a64c16f6854af0a8223b76cbd0b18db592e7f71c401dbcc5572d9146",
+        "night": "9c0ffa05a64c16f6854af0a8223b76cbd0b18db592e7f71c401dbcc5572d9146",
+        "alphaMode": "alpha"
+      },
+      "geometry": {
+        "mode": "preserve",
+        "scale": 1.0,
+        "offsetX": 0.0,
+        "offsetY": 0.0
+      },
+      "day": {
+        "mode": "original",
+        "foreground": "#272727",
+        "brightness": 1.0,
+        "contrast": 1.0,
+        "gamma": 1.0,
+        "threshold": 128,
+        "invert": false
+      },
+      "night": {
+        "mode": "original",
+        "foreground": "#d8d8d8",
+        "brightness": 1.0,
+        "contrast": 1.0,
+        "gamma": 1.0,
+        "threshold": 128,
+        "invert": false
+      },
+      "backgrounds": {
+        "day": "transparent",
+        "night": "transparent"
+      }
+    },
+    "day": "9c0ffa05a64c16f6854af0a8223b76cbd0b18db592e7f71c401dbcc5572d9146",
+    "night": "9c0ffa05a64c16f6854af0a8223b76cbd0b18db592e7f71c401dbcc5572d9146"
+  },
+  "outputs": {
+    "app/src/main/res/mipmap/ic_plugin_center.png": {
+      "role": "ui-day"
+    },
+    "app/src/main/res/mipmap-night/ic_plugin_center.png": {
+      "role": "ui-night"
+    },
+    "app/src/main/res/raw/keep_plugin_center_icon.xml": {
+      "role": "keep-rule"
+    },
+    "app/src/main/res/values/icon_studio_backgrounds.xml": {
+      "role": "background-color",
+      "theme": "day"
+    },
+    "app/src/main/res/values-night/icon_studio_backgrounds.xml": {
+      "role": "background-color",
+      "theme": "night"
+    },
+    "app/src/main/res/raw/keep_icon_studio_background.xml": {
+      "role": "background-keep"
+    },
+    "app/src/main/res/mipmap/ic_icon_studio_application_foreground.png": {
+      "role": "adaptive-day"
+    },
+    "app/src/main/res/mipmap-night/ic_icon_studio_application_foreground.png": {
+      "role": "adaptive-night"
+    },
+    "app/src/main/res/mipmap/ic_icon_studio_application_monochrome.png": {
+      "role": "mono"
+    },
+    "app/src/main/res/mipmap-anydpi/ic_icon_studio_application.xml": {
+      "role": "application-adaptive"
+    },
+    "app/src/main/res/mipmap-night-anydpi/ic_icon_studio_application.xml": {
+      "role": "application-adaptive"
+    },
+    "app/src/main/res/raw/keep_icon_studio_application.xml": {
+      "role": "application-keep"
+    }
+  },
+  "assets": [
+    "9c0ffa05a64c16f6854af0a8223b76cbd0b18db592e7f71c401dbcc5572d9146"
+  ],
+  "legacyGenerator": null,
+  "backgroundDefaults": {
+    "day": "transparent",
+    "night": "transparent"
+  },
+  "systemIcon": true,
+  "originalSources": {},
+  "systemIconMinSdk": 26,
+  "systemIconObsolete": [
+    "app/src/main/res/mipmap-anydpi-v26/ic_icon_studio_application.xml",
+    "app/src/main/res/mipmap-night-anydpi-v26/ic_icon_studio_application.xml",
+    "app/src/main/res/mipmap-night/ic_icon_studio_application.png",
+    "app/src/main/res/mipmap/ic_icon_studio_application.png"
+  ]
+}
