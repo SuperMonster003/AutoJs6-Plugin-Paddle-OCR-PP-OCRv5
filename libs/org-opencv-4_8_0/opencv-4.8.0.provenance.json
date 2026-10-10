@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 3,
+  "component": "OpenCV",
+  "opencvVersion": "4.8.0",
+  "librariesBuiltOn": "2026-09-12",
+  "upstream": {
+    "repository": "https://github.com/opencv/opencv",
+    "tag": "4.8.0",
+    "tagObject": "53296de62872b5e7d042ddffb49679fbdcca99f6",
+    "commit": "f9a59f2592993d3dcc080e495f4f5e02dd8ec7ef"
+  },
+  "aar": {
+    "path": "libs/org-opencv-4_8_0/opencv-4.8.0.aar",
+    "sha256": "8c4b410ae07a709d30e75019cf636393ce8784cacbac95ef3f47accf80b5d25c",
+    "javaClassesAndResourcesSha256": "6455b2f6c8974346e903fee07d179ac2a7a79426035c98bfc37f7e2a2f7de19a",
+    "javaClassesAndResources": "vendor OpenCV 4.8.0 Android Java module, unchanged; only jni/ entries are rebuilt"
+  },
+  "build": {
+    "script": "tools/opencv/build_opencv_java.ps1",
+    "target": "opencv_java",
+    "androidNdkVersion": "28.2.13676358",
+    "androidNdkRelease": "r28c",
+    "cmakeVersion": "3.22.1",
+    "androidMinSdk": 24,
+    "stl": "c++_shared",
+    "options": [
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-z,max-page-size=16384",
+      "-DBUILD_JAVA=ON",
+      "-DBUILD_ANDROID_PROJECTS=ON",
+      "-DBUILD_KOTLIN_EXTENSIONS=OFF",
+      "-DWITH_TBB=ON",
+      "-DWITH_OPENCL=OFF",
+      "-DWITH_IPP=ON (x86, x86_64) / OFF (ARM)",
+      "-DBUILD_TESTS=OFF",
+      "-DBUILD_PERF_TESTS=OFF",
+      "-DBUILD_EXAMPLES=OFF",
+      "-DBUILD_DOCS=OFF",
+      "-DANDROID_STL=c++_shared",
+      "-DANDROID_NATIVE_API_LEVEL=24"
+    ],
+    "strip": "llvm-strip"
+  },
+  "libraries": {
+    "arm64-v8a": {
+      "sizeBytes": 20398208,
+      "sha256": "988f653ee309848dae1a57b5bedb32d85c17c6f2ad9b8c7ec1a1bb4c3095d506",
+      "gnuBuildId": "ad5ef33b3736e3aa79536f0d7f21c7f904704f7a",
+      "androidIdent": {
+        "apiLevel": 24,
+        "ndkVersion": "r28c",
+        "ndkBuildNumber": "13676358"
+      },
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "neededLibraries": [
+        "libdl.so",
+        "libm.so",
+        "liblog.so",
+        "libjnigraphics.so",
+        "libz.so",
+        "libandroid.so",
+        "libmediandk.so",
+        "libcamera2ndk.so",
+        "libc.so",
+        "libc++_shared.so"
+      ]
+    },
+    "armeabi-v7a": {
+      "sizeBytes": 14325692,
+      "sha256": "7e8f92311f34853a5998eadceaf07ebdc7483a878bbafe90d31276d045ae26ce",
+      "gnuBuildId": "6a213739760f3bae276a7f05df934e8a1eddd3fd",
+      "androidIdent": {
+        "apiLevel": 24,
+        "ndkVersion": "r28c",
+        "ndkBuildNumber": "13676358"
+      },
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "neededLibraries": [
+        "libdl.so",
+        "libm.so",
+        "liblog.so",
+        "libjnigraphics.so",
+        "libz.so",
+        "libandroid.so",
+        "libmediandk.so",
+        "libcamera2ndk.so",
+        "libc.so",
+        "libc++_shared.so"
+      ]
+    },
+    "x86": {
+      "sizeBytes": 39010608,
+      "sha256": "86414781d9b32628535a6516c68b198eef325aa89080ddf4d9fd65bb89aff972",
+      "gnuBuildId": "8f9ca09dcd6b6f8e2538fa664ffa57cb97441846",
+      "androidIdent": {
+        "apiLevel": 24,
+        "ndkVersion": "r28c",
+        "ndkBuildNumber": "13676358"
+      },
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "neededLibraries": [
+        "libdl.so",
+        "libm.so",
+        "liblog.so",
+        "libjnigraphics.so",
+        "libz.so",
+        "libandroid.so",
+        "libmediandk.so",
+        "libcamera2ndk.so",
+        "libc.so",
+        "libc++_shared.so"
+      ]
+    },
+    "x86_64": {
+      "sizeBytes": 53221968,
+      "sha256": "f9a66c2fec379e14757b11aa4220e67205c2e4d917b4dfffe7c6f99ba2623c6e",
+      "gnuBuildId": "6b5d52f25f49ea71a37c1c80cfcc6a9dcb47fc88",
+      "androidIdent": {
+        "apiLevel": 24,
+        "ndkVersion": "r28c",
+        "ndkBuildNumber": "13676358"
+      },
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384
+      ],
+      "neededLibraries": [
+        "libdl.so",
+        "libm.so",
+        "liblog.so",
+        "libjnigraphics.so",
+        "libz.so",
+        "libandroid.so",
+        "libmediandk.so",
+        "libcamera2ndk.so",
+        "libc.so",
+        "libc++_shared.so"
+      ]
+    }
+  }
+}
