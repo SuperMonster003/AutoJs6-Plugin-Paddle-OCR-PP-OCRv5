@@ -115,13 +115,18 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ******
 
+# v1.0.5
+
+###### 2026/11/04
+
+* `优化` Android 系统应用信息图标与图标工作台共用图稿和亮暗底色, 保留插件中心透明图稿及现有启动器选项
+
 # v1.0.4
 
-###### 2026/10/05
+###### 2026/09/19
 
 * `修复` AGP 9.1 构建时的 SDK XML v4 解析警告, 以及 JVM 单元测试误触发 APK 原生库对齐检查的问题 (共享构建插件 1.8.3)
 * `优化` compileSdk/targetSdk 升级至 37 (Android 17)
-* `优化` Android 系统应用信息图标与图标工作台共用图稿和亮暗底色, 保留插件中心透明图稿及现有启动器选项
 
 # v1.0.3
 
@@ -133,15 +138,6 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 * `优化` 发布前校验 APK 版本, 签名及变体完整性
 * `优化` 图像最多包含 16777216 个像素, 原始图像缓冲区上限为 64 MiB
 * `优化` 原生库支持 arm64-v8a/armeabi-v7a/x86/x86_64, 并提供通用及各 ABI 独立安装包
-
-# v1.0.2
-
-###### 2026/09/12
-
-* `修复` 16 KB 内存页设备初始化引擎时出现 SIGSEGV 崩溃的问题, libc++_shared.so 改用 NDK r28.2 构建版本 (arm64-v8a/armeabi-v7a)
-* `修复` 加载较大识别模型时因 OutOfMemoryError 而返回空结果的问题, 模型改为缓存至应用私有目录并通过内存映射加载
-* `修复` 部分 Gradle/AGP 组合下 Kotlin 源码未参与编译, 以及 WakeActivity 重复定义导致构建失败的问题
-* `优化` OpenCV 4.8.0 原生库改用 NDK r28c (Clang 19.0.1) 构建, 4 个 ABI 均支持 16 KB 内存页并附带构建来源清单 (来源: AutoJs6-Plugin-OpenCV)
 
 ##### 更多发行历史可参阅
 

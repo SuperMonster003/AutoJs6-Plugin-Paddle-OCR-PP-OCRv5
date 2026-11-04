@@ -115,13 +115,18 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ******
 
+# v1.0.5
+
+###### 2026/11/04
+
+* `개선` Android 앱 정보 아이콘에 Icon Studio의 그림과 밝은 배경 및 어두운 배경을 사용하고 플러그인 센터의 투명 그림과 기존 런처 옵션을 유지
+
 # v1.0.4
 
-###### 2026/10/05
+###### 2026/09/19
 
 * `수정` 공유 빌드 플러그인 1.8.3을 통해 AGP 9.1의 SDK XML v4 파싱 경고 및 JVM 단위 테스트 조립 작업에서 APK 네이티브 라이브러리 정렬 검사가 잘못 실행되는 문제 해결
 * `개선` compileSdk 와 targetSdk 를 37 (Android 17) 로 올리며, 플러그인 동작은 새 대상 버전의 영향을 받지 않음
-* `개선` Android 앱 정보 아이콘에 Icon Studio의 그림과 밝은 배경 및 어두운 배경을 사용하고 플러그인 센터의 투명 그림과 기존 런처 옵션을 유지
 
 # v1.0.3
 
@@ -133,15 +138,6 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 * `개선` 다운로드 파일 생성 전에 릴리스 APK의 버전, 서명 및 전체 변형 구성을 검증
 * `개선` 이미지는 최대 16777216픽셀, 원시 이미지 버퍼는 최대 64 MiB까지 지원
 * `개선` 네이티브 ABI 패키징과 플러그인 메타데이터를 arm64-v8a, armeabi-v7a, x86, x86_64로 확장하고 범용 APK와 ABI별 APK를 일치시킴
-
-# v1.0.2
-
-###### 2026/09/12
-
-* `수정` 16 KB 페이지 크기 기기에서 엔진 초기화 시 크래시(SIGSEGV)가 발생하던 문제 수정: 번들된 `libc++_shared.so`를 NDK r28.2 빌드로 교체하여 RELRO 세그먼트가 쓰기 가능한 데이터와 페이지를 공유하지 않도록 함 (arm64-v8a, armeabi-v7a)
-* `수정` 큰 인식 모델을 로드할 때 `OutOfMemoryError`로 인해 빈 결과가 조용히 반환되던 문제 수정: 모델 자산을 앱 전용 저장소에 한 번만 복사하고 Java 힙으로 읽는 대신 ONNX Runtime이 메모리 매핑하도록 변경
-* `수정` 일부 Gradle/AGP 조합에서 Kotlin 소스가 컴파일되지 않거나 `WakeActivity` 중복 정의로 빌드가 실패하는 문제
-* `개선` OpenCV 4.8.0 네이티브 라이브러리를 NDK r28c (Clang 19.0.1) 재빌드 버전으로 동기화 (donor: AutoJs6-Plugin-OpenCV); 4개 ABI의 `libopencv_java4.so`는 16 KB `PT_LOAD` 정렬을 유지하며 provenance 매니페스트를 포함
 
 ##### 더 많은 릴리스 기록
 

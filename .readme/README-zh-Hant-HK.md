@@ -115,13 +115,18 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ******
 
+# v1.0.5
+
+###### 2026/11/04
+
+* `優化` Android 系統應用程式資訊圖示與圖示工作台共用圖稿及明暗底色, 保留外掛程式中心透明圖稿與現有啟動器選項
+
 # v1.0.4
 
-###### 2026/10/05
+###### 2026/09/19
 
 * `修復` AGP 9.1 構建時的 SDK XML v4 解析警告及 JVM 單元測試組裝任務誤觸發 APK 原生程式庫對齊檢查的問題 (共用構建外掛 1.8.3)
 * `優化` 將 compileSdk 與 targetSdk 提升到 37 (Android 17), 插件行為不受新目標版本影響
-* `優化` Android 系統應用程式資訊圖示與圖示工作台共用圖稿及明暗底色, 保留外掛程式中心透明圖稿與現有啟動器選項
 
 # v1.0.3
 
@@ -133,15 +138,6 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 * `優化` 發佈下載檔案產生前校驗 APK 版本, 簽署與完整變體集合
 * `優化` 影像最多包含 16777216 個像素, 原始影像緩衝區上限為 64 MiB
 * `優化` 擴展原生 ABI 打包與插件中繼資料至 arm64-v8a, armeabi-v7a, x86 和 x86_64, 同步通用 APK 與各 ABI 獨立 APK
-
-# v1.0.2
-
-###### 2026/09/12
-
-* `修復` 修復 16 KB 頁大小設備上引擎初始化即崩潰 (SIGSEGV) 的問題: 隨包的 `libc++_shared.so` 更新為 NDK r28.2 構建版本, 其 RELRO 段末尾不再與可寫資料共用記憶體頁 (arm64-v8a, armeabi-v7a)
-* `修復` 修復載入體積較大的識別模型時因 `OutOfMemoryError` 而靜默返回空結果的問題: 模型資源現在只會複製到應用私有目錄一次, 並由 ONNX Runtime 以記憶體映射方式建立會話, 不再整體讀入 Java 堆
-* `修復` 部分 Gradle/AGP 組合下 Kotlin 原始碼未參與編譯, 以及重複定義 `WakeActivity` 導致的建置失敗
-* `優化` 同步 OpenCV 4.8.0 原生庫至 NDK r28c (Clang 19.0.1) 重編版本 (donor: AutoJs6-Plugin-OpenCV), 4 個 ABI 的 `libopencv_java4.so` 保持 16 KB `PT_LOAD` 對齊並附帶 provenance 清單
 
 ##### 更多發行歷史可參閱
 
