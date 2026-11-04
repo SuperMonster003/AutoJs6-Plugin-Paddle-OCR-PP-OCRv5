@@ -119,6 +119,7 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ###### 2026/11/04
 
+* `修复` AutoJs6 无法激活部分插件变体的问题
 * `优化` Android 系统应用信息图标与图标工作台共用图稿和亮暗底色, 保留插件中心透明图稿及现有启动器选项
 
 # v1.0.4

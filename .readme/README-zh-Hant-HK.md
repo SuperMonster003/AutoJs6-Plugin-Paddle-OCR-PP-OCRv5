@@ -119,6 +119,7 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ###### 2026/11/04
 
+* `修復` AutoJs6 無法啟用部分外掛程式變體的問題
 * `優化` Android 系統應用程式資訊圖示與圖示工作台共用圖稿及明暗底色, 保留外掛程式中心透明圖稿與現有啟動器選項
 
 # v1.0.4

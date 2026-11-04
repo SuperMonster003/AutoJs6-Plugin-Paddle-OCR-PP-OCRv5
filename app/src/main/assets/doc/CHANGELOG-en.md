@@ -8,6 +8,7 @@
 
 ###### 2026/11/04
 
+* `Fix` AutoJs6 could not activate some plugin variants
 * `Improvement` Android App info icons share Icon Studio artwork and light/dark backgrounds while preserving transparent Plugin Center artwork and existing launcher choices
 
 # v1.0.4

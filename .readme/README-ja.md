@@ -119,6 +119,7 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ###### 2026/11/04
 
+* `修正` AutoJs6 が一部のプラグインバリアントを起動できない問題
 * `改善` Android のアプリ情報アイコンに Icon Studio と共通の図案と明暗の背景色を使用し, プラグインセンターの透明な図案と既存のランチャー設定を維持
 
 # v1.0.4

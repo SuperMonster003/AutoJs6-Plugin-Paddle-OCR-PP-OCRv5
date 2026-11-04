@@ -119,6 +119,7 @@ python scripts\prepare_ppocrv5_assets.py --profile all
 
 ###### 2026/11/04
 
+* `Correccion` AutoJs6 no podía activar algunas variantes del plugin
 * `Mejora` Los iconos de información de la aplicación de Android comparten las imágenes y los fondos claros y oscuros de Icon Studio, conservando las imágenes transparentes del centro de plugins y las opciones del lanzador
 
 # v1.0.4

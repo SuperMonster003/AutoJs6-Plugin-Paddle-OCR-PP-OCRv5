@@ -16,14 +16,14 @@
 
         <meta-data
             android:name="org.autojs.plugin.WAKE_ACTIVITY"
-            android:value=".WakeActivity" />
+            android:value="io.github.supermonster003.autojs6.plugin.paddleocr.v5.WakeActivity" />
 
         <meta-data
             android:name="org.autojs.plugin.info.AUTHOR"
             android:value="SuperMonster003" />
 
         <activity
-            android:name=".WakeActivity"
+            android:name="io.github.supermonster003.autojs6.plugin.paddleocr.v5.WakeActivity"
             android:exported="true"
             android:excludeFromRecents="true"
             android:finishOnTaskLaunch="true"

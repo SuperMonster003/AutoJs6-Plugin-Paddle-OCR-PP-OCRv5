@@ -7,6 +7,9 @@
   "$data": {
     "v1.0.5": {
       "released_date": "2026/11/04",
+      "fix": [
+        "AutoJs6 could not activate some plugin variants"
+      ],
       "improvement": [
         "Android App info icons share Icon Studio artwork and light/dark backgrounds while preserving transparent Plugin Center artwork and existing launcher choices"
       ]
